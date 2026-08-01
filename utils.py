@@ -7,7 +7,7 @@ def nearest_location():
 def selected(string,tabnum,key):
     st.markdown(string)
     return
-def selected_image(checklist_key):
+def selected_image(checklist_key,string):
     'Function that adds selected actions from action image'
     # Calculate nearest 'action'
     # Correct values for reshaped grid 
