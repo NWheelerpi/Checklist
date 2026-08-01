@@ -14,7 +14,9 @@ def layout(Tab,checklist,checklist_key,tab_num):
     actions=checklist.T.values.tolist()[0]
     conditionals=checklist.T.values.tolist()[1]
 
-    title=[i for i in checklist_key.split('_')]
+    for i in checklist_key.split('_'):
+        title += i
+   
 
     with Tab:
         st.header(title)
