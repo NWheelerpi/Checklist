@@ -29,6 +29,6 @@ st.markdown(st.session_state.Keys)
 ### Create correct number of Tabs
 
 Tabs=st.tabs(st.session_state.Keys)
-st.markdown(Tabs[1])
+
 for j,i in enumerate(num_checklist_list):
-    layout(st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j)
+    layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j)
