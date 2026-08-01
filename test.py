@@ -21,5 +21,5 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
 
     with Tab:
         st.header(title)
-        st.image(Image,use_container_width=True)
+        st.image(Image,width=800)
     return
