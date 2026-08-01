@@ -1,13 +1,14 @@
 def nearest_location():
     print('Nearest Location')
     return
-'''
-def selected_image():
+
+def selected_image(checklist_key):
     'Function that adds selected actions from action image'
         # Calculate nearest 'action'
         # Correct values for reshaped grid 
-        #print('\n',xval,yval)
-        
+        value=st.session_state.xylist[checklist_key]
+        st.markdown(value)
+        '''
         xval*=860/self.xval
         yval*=640/self.yval
         dist_dict={}
@@ -38,6 +39,7 @@ def selected_image():
         # Add/remove from text
         if action_string!=None:
             self.selected(action_string,tabnum,Key)
+        '''
     return
-'''
+
 

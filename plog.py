@@ -8,11 +8,13 @@ import numpy as np
 
 st.set_page_config(layout="wide")
 ### Extract Emergencies
-
 book= 'Tutor_Emergencies.xlsx'
-st.session_state.emergency_dict=pd.read_excel(book,sheet_name=None)
 action_image=pd.read_excel('Image_Actions.xlsx',sheet_name='Sheet1')
-st.session_state.action_dict={}
+
+st.session_state.emergency_dict=pd.read_excel(book,sheet_name=None)     # Dictionary of emergencies
+st.session_state.action_dict={}                                         # Dictionary of actions
+st.session_state.xylist[checklist_key]={}                               # Dictionary of image coordinates (based on Cockpit image)
+
 for i in range(len(action_image)):
             st.session_state.action_dict[i]=[action_image.T.values.tolist()[0][i],action_image.T.values.tolist()[1][i],action_image.T.values.tolist()[2][i],action_image.T.values.tolist()[3][i],action_image.T.values.tolist()[4][i],action_image.T.values.tolist()[5][i]]
 
@@ -34,3 +36,4 @@ Tabs=st.tabs([str(i+1) for i in range(len(st.session_state.Keys))])
 
 for j,i in enumerate(st.session_state.num_checklist_list):
     layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png')
+    selected_image(st.session_state.Keys[j])
