@@ -37,7 +37,7 @@ def selected_image(checklist_key):
             action_string=st.session_state.action_dict[action_index][5]
     else:
         pass
-    
+    st.markdown(action_string)
     #print(xval,yval,string,action_string)
     
     # Add/remove from text
