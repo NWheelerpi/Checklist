@@ -4,6 +4,8 @@ from utils import *
 from test import *
 import random
 import numpy as np
+
+st.set_page_config(layout="wide")
 ### Extract Emergencies
 
 book= 'Tutor_Emergencies.xlsx'
