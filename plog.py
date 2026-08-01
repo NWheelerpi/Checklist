@@ -13,7 +13,7 @@ action_image=pd.read_excel('Image_Actions.xlsx',sheet_name='Sheet1')
 
 st.session_state.emergency_dict=pd.read_excel(book,sheet_name=None)     # Dictionary of emergencies
 st.session_state.action_dict={}                                         # Dictionary of actions
-st.session_state.xylist[checklist_key]={}                               # Dictionary of image coordinates (based on Cockpit image)
+st.session_state.xylist={}                               # Dictionary of image coordinates (based on Cockpit image)
 
 for i in range(len(action_image)):
             st.session_state.action_dict[i]=[action_image.T.values.tolist()[0][i],action_image.T.values.tolist()[1][i],action_image.T.values.tolist()[2][i],action_image.T.values.tolist()[3][i],action_image.T.values.tolist()[4][i],action_image.T.values.tolist()[5][i]]
