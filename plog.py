@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+from data import *
 ### Extract Emergencies
 
 book= 'Tutor_Emergencies.xlsx'
@@ -8,3 +9,5 @@ action_image=pd.read_excel('Image_Actions.xlsx',sheet_name='Sheet1')
 st.session_state.action_dict={}
 for i in range(len(action_image)):
             st.session_state.action_dict[i]=[action_image.T.values.tolist()[0][i],action_image.T.values.tolist()[1][i],action_image.T.values.tolist()[2][i],action_image.T.values.tolist()[3][i],action_image.T.values.tolist()[4][i],action_image.T.values.tolist()[5][i]]
+
+nearest_location()
