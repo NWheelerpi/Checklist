@@ -13,13 +13,17 @@ st.session_state.action_dict={}
 for i in range(len(action_image)):
             st.session_state.action_dict[i]=[action_image.T.values.tolist()[0][i],action_image.T.values.tolist()[1][i],action_image.T.values.tolist()[2][i],action_image.T.values.tolist()[3][i],action_image.T.values.tolist()[4][i],action_image.T.values.tolist()[5][i]]
 
-st.session_state.Keys=[i for i in st.session_state.emergency_dict.keys()]
-
-##### Randomise Emergencies as required
+Raw_Keys=[i for i in st.session_state.emergency_dict.keys()]
+# Randomise order
 num_checklist_list=list(np.arange(0,len(st.session_state.Keys),1))
 random.shuffle(num_checklist_list)
-    
+
+for i in num_checklist_list:
+    st.session_state.Keys.append(Raw_Keys[i])
 st.markdown(st.session_state.Keys)
+
+### Create correct number of Tabs
+
 
 for j,i in enumerate(num_checklist_list):
     layout(self.windowlist[j*2],st.session_state.emergency_dict[st.session_state.Keys[num_checklist_list[j]]],st.session_state.Keys[num_checklist_list[j]],j*2)
