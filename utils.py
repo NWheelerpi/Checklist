@@ -4,7 +4,7 @@ def nearest_location():
     print('Nearest Location')
     return
 
-def selected(string,tabnum,key):
+def selected(string,key):
     st.markdown(string)
     return
 def selected_image(checklist_key,string='on'):
@@ -42,7 +42,7 @@ def selected_image(checklist_key,string='on'):
     
     # Add/remove from text
     if action_string!=None:
-        selected(action_string,tabnum,Key)
+        selected(action_string,checklist_key)
     return
 
 
