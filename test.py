@@ -7,7 +7,7 @@ def submit_answer():
 def show_hint():
     return
 
-def layout(master,checklist,checklist_key,tab_num):
+def layout(checklist,checklist_key,tab_num):
     actions=checklist.T.values.tolist()[0]
     conditionals=checklist.T.values.tolist()[1]
     return

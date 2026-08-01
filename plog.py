@@ -30,4 +30,4 @@ st.markdown(st.session_state.Keys)
 
 Tabs=st.tabs(st.session_state.Keys)
 for j,i in enumerate(num_checklist_list):
-    layout(self.windowlist[j*2],st.session_state.emergency_dict[st.session_state.Keys[num_checklist_list[j]]],st.session_state.Keys[num_checklist_list[j]],j*2)
+    layout(st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j])
