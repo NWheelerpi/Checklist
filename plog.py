@@ -21,7 +21,7 @@ for i in range(len(action_image)):
 Raw_Keys=[i for i in st.session_state.emergency_dict.keys()]
 # Randomise order
 st.session_state.num_checklist_list=list(np.arange(0,len(Raw_Keys),1))
-random.shuffle(st.session_state.num_checklist_list)
+#random.shuffle(st.session_state.num_checklist_list)
 
 st.session_state.Keys=[]
 
