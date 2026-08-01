@@ -24,5 +24,5 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
         outer_cols = st.columns([1,1])
 
         with outer_cols[0]:
-            st.image(Image,width='content')
+            st.image(Image,width='stretch')
     return
