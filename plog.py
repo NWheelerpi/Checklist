@@ -13,4 +13,4 @@ for i in range(len(action_image)):
 
 st.session_state.keys=[i for i in st.session_state.emergency_dict.keys()]
 
-st.markdown(st.session_state.keys)
+st.markdown(st.session_state.keys())
