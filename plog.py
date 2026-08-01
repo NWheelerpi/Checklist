@@ -3,6 +3,7 @@ import streamlit as st
 from utils import *
 from test import *
 import random
+import numpy as np
 ### Extract Emergencies
 
 book= 'Tutor_Emergencies.xlsx'
