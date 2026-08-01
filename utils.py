@@ -40,6 +40,6 @@ def selected_image(checklist_key):
     if action_string!=None:
         self.selected(action_string,tabnum,Key)
     '''
-        return
+     return
 
 
