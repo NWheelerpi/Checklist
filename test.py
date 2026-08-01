@@ -9,7 +9,7 @@ def submit_answer():
 def show_hint():
     return
 
-def layout(Tab,checklist,checklist_key,tab_num):
+def layout(Tab,checklist,checklist_key,tab_num,Image):
     
     actions=checklist.T.values.tolist()[0]
     conditionals=checklist.T.values.tolist()[1]
@@ -21,4 +21,5 @@ def layout(Tab,checklist,checklist_key,tab_num):
 
     with Tab:
         st.header(title)
+        st.image(Image,use_container_width=True)
     return
