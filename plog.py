@@ -4,6 +4,7 @@ from utils import *
 from test import *
 import random
 import numpy as np
+from streamlit_image_coordinates import streamlit_image_coordinates
 
 st.set_page_config(layout="wide")
 ### Extract Emergencies
