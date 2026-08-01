@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
-from data import *
+from utils import *
+from test import *
 ### Extract Emergencies
 
 book= 'Tutor_Emergencies.xlsx'
