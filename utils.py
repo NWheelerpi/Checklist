@@ -13,7 +13,8 @@ def selected_image(checklist_key,string='on'):
     # Calculate nearest 'action'
     # Correct values for reshaped grid 
     value=st.session_state.xylist[checklist_key]
- 
+    if not value:
+        return
     xval=value['x']*860/value['width']
     yval=value['y']*640/value['height']
     dist_dict={}
