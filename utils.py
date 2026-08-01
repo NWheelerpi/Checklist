@@ -7,12 +7,13 @@ def nearest_location():
 def selected(string,key):
     st.markdown(string)
     return
+
 def selected_image(checklist_key,string='on'):
     'Function that adds selected actions from action image'
     # Calculate nearest 'action'
     # Correct values for reshaped grid 
     value=st.session_state.xylist[checklist_key]
-    st.markdown(value)
+ 
     xval=value['x']*860/value['width']
     yval=value['y']*640/value['height']
     dist_dict={}
@@ -37,7 +38,6 @@ def selected_image(checklist_key,string='on'):
             action_string=st.session_state.action_dict[action_index][5]
     else:
         pass
-    st.markdown(action_string)
     #print(xval,yval,string,action_string)
     
     # Add/remove from text
