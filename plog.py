@@ -32,3 +32,16 @@ Tabs=st.tabs(st.session_state.Keys)
 
 for j,i in enumerate(num_checklist_list):
     layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j)
+
+tab = st.select_slider(
+    "Step",
+    options=["1", "2", "3"],
+    key="tab",
+    label_visibility="hidden",
+)
+
+if tab == "1":
+    def set_tab():
+        st.session_state["tab"] = "2"
+
+    st.button("Next Step", type="primary", on_click=set_tab)
