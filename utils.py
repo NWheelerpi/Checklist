@@ -43,7 +43,7 @@ def selected_image(checklist_key):
     # Add/remove from text
     if action_string!=None:
         selected(action_string,tabnum,Key)
-    '''
+    return
 
 
 
