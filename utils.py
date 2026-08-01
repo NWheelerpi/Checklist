@@ -1,5 +1,5 @@
 def nearest_location():
-    st.print('Nearest Location')
+    print('Nearest Location')
     return
 
 
