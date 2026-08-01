@@ -22,7 +22,7 @@ random.shuffle(st.session_state.num_checklist_list)
 
 st.session_state.Keys=[]
 
-for i in num_checklist_list:
+for i in st.session_state.num_checklist_list:
     st.session_state.Keys.append(Raw_Keys[i])
 st.markdown(st.session_state.Keys)
 
