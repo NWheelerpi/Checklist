@@ -11,6 +11,6 @@ st.session_state.action_dict={}
 for i in range(len(action_image)):
             st.session_state.action_dict[i]=[action_image.T.values.tolist()[0][i],action_image.T.values.tolist()[1][i],action_image.T.values.tolist()[2][i],action_image.T.values.tolist()[3][i],action_image.T.values.tolist()[4][i],action_image.T.values.tolist()[5][i]]
 
-st.session_state.keys=[i for i in self.checklist_dict.keys()]
+st.session_state.keys=[i for i in st.session_state.emergency_dict.keys()]
 
 st.markdown(st.session_state.keys)
