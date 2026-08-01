@@ -26,6 +26,6 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
         outer_cols = st.columns([3,1])
 
         with outer_cols[0]:
-            xy=streamlit_image_coordinates(Image,width='content',key='Image'+str(tab_num))
+            xy=streamlit_image_coordinates(Image,use_column_width=True,key='Image'+str(tab_num))
             st.write(xy)
     return
