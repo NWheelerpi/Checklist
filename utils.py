@@ -1,7 +1,7 @@
 def nearest_location():
     print('Nearest Location')
     return
-
+'''
 def selected_image():
     'Function that adds selected actions from action image'
         # Calculate nearest 'action'
@@ -39,5 +39,5 @@ def selected_image():
         if action_string!=None:
             self.selected(action_string,tabnum,Key)
     return
-
+'''
 
