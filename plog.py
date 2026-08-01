@@ -4,7 +4,7 @@ from utils import *
 from test import *
 import random
 import numpy as np
-from streamlit_image_coordinates import streamlit_image_coordinates
+
 
 st.set_page_config(layout="wide")
 ### Extract Emergencies
@@ -31,5 +31,6 @@ st.markdown(st.session_state.Keys)
 
 Tabs=st.tabs([str(i+1) for i in range(len(st.session_state.Keys))])
 
+st.markdown(value)
 for j,i in enumerate(st.session_state.num_checklist_list):
     layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png')
