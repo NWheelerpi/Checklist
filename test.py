@@ -7,7 +7,11 @@ def submit_answer():
 def show_hint():
     return
 
-def layout(checklist,checklist_key):
+def layout(checklist,checklist_key,tab_num):
     actions=checklist.T.values.tolist()[0]
     conditionals=checklist.T.values.tolist()[1]
+
+    title=[i for i in checklist_key.splitlines('_')]
+    with Tabs(tab_num):
+        st.header(title)
     return
