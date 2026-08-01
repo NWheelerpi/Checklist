@@ -18,6 +18,8 @@ Raw_Keys=[i for i in st.session_state.emergency_dict.keys()]
 num_checklist_list=list(np.arange(0,len(Raw_Keys),1))
 random.shuffle(num_checklist_list)
 
+st.session_state.Keys=[]
+
 for i in num_checklist_list:
     st.session_state.Keys.append(Raw_Keys[i])
 st.markdown(st.session_state.Keys)
