@@ -15,7 +15,7 @@ for i in range(len(action_image)):
 
 Raw_Keys=[i for i in st.session_state.emergency_dict.keys()]
 # Randomise order
-num_checklist_list=list(np.arange(0,len(st.session_state.Keys),1))
+num_checklist_list=list(np.arange(0,len(Raw_Keys),1))
 random.shuffle(num_checklist_list)
 
 for i in num_checklist_list:
@@ -24,6 +24,6 @@ st.markdown(st.session_state.Keys)
 
 ### Create correct number of Tabs
 
-
+Tabs=st.tabs(st.session_state.Keys)
 for j,i in enumerate(num_checklist_list):
     layout(self.windowlist[j*2],st.session_state.emergency_dict[st.session_state.Keys[num_checklist_list[j]]],st.session_state.Keys[num_checklist_list[j]],j*2)
