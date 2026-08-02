@@ -41,13 +41,16 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
     with Tab:
         st.header(title)
         outer_cols = st.columns([5,1,10])
-        with outer_cols[0]:
-            st.markdown(st.session_state.answer[checklist_key])
-            for string in st.session_state.answer[checklist_key]:
-                st.markdown(string)
+        
         with outer_cols[1]:
             click_type=st.radio('Click Type',['On','Off','Check'],key='Radio'+str(checklist_key),label_visibility='collapsed')
         with outer_cols[2]:
             xy=streamlit_image_coordinates(Image,use_column_width=True,key='Image'+str(checklist_key),cursor='crosshair')
             st.session_state.xylist[checklist_key]=xy
+        selected_image(checklist_key)
+        with outer_cols[0]:
+            st.markdown(st.session_state.answer[checklist_key])
+            for string in st.session_state.answer[checklist_key]:
+                st.markdown(string)
+    
     return
