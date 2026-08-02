@@ -42,7 +42,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
         st.header(title)
         outer_cols = st.columns([5,1,10])
         with outer_cols[0]:
-            st.markdown(st.session_state[checklist_key])
+            st.markdown(st.session_state.answer[checklist_key])
             for string in st.session_state.answer[checklist_key]:
                 st.markdown(string)
         with outer_cols[1]:
