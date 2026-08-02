@@ -49,7 +49,6 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
             st.session_state.xylist[checklist_key]=xy
         selected_image(checklist_key)
         with outer_cols[0]:
-            st.markdown(st.session_state.answer[checklist_key])
             for string in st.session_state.answer[checklist_key]:
                 st.markdown(string)
     

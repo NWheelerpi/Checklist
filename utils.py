@@ -9,14 +9,14 @@ def selected(string,key):
     key_len=len(st.session_state.answer[key])
     if len(st.session_state.answer[key])==0:
         st.session_state.answer[key].append(string)
-        st.markdown('Added '+string)
+        #st.markdown('Added '+string)
     # Check not in answer already (as last input)
     elif string not in st.session_state.answer[key][-1]:
         st.session_state.answer[key].append(string)
-        st.markdown('Appended '+string)  
+        #st.markdown('Appended '+string)  
     # Remove if last answer
     elif string in st.session_state.answer[key][-1]:
-        st.markdown('Removed '+string)
+        #st.markdown('Removed '+string)
         st.session_state.answer[key]=st.session_state.answer[key][:-1]
     else:
         pass
@@ -34,7 +34,7 @@ def selected_image(checklist_key,string='on'):
     now=int(time.time())
     if now-ut>5:
         return
-        
+
     xval=value['x']*860/value['width']
     yval=value['y']*640/value['height']
 

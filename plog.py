@@ -44,14 +44,10 @@ for i in st.session_state.num_checklist_list:
 for i in range(len(action_image)):
     st.session_state.action_dict[i]=[action_image.T.values.tolist()[0][i],action_image.T.values.tolist()[1][i],action_image.T.values.tolist()[2][i],action_image.T.values.tolist()[3][i],action_image.T.values.tolist()[4][i],action_image.T.values.tolist()[5][i]]
     
-
 ### Create correct number of Tabs
 Tabs=st.tabs([str(i+1) for i in range(len(st.session_state.Keys))])
 
-
-#for j,i in enumerate(st.session_state.num_checklist_list):
-    
-
+# Create Master list, Answer list and set layout of each tab (layout also runs through image click effects)
 for j,i in enumerate(st.session_state.num_checklist_list):
     st.session_state.master_list[st.session_state.Keys[j]]=[]
     if st.session_state.Keys[j] not in st.session_state.answer.keys(): 
