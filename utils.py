@@ -6,18 +6,18 @@ def nearest_location():
 
 def selected(string,key):
     st.markdown(string)
-    key_len=len(st.session_state.answer[Key])
-    if len(st.session_state.answer[Key])==0:
-        st.session_state.answer[Key].append(string)
+    key_len=len(st.session_state.answer[key])
+    if len(st.session_state.answer[key])==0:
+        st.session_state.answer[key].append(string)
     # Check not in answer already (as last input)
-    elif string not in st.session_state.answer[Key][-1]:
-        st.session_state.answer[Key].append(string)  
+    elif string not in st.session_state.answer[key][-1]:
+        st.session_state.answer[key].append(string)  
     # Remove if last answer
-    elif string in st.session_state.answer[Key][-1]:
-        st.session_state.answer[Key]=st.session_state.answer[Key][:-1]
+    elif string in st.session_state.answer[key][-1]:
+        st.session_state.answer[key]=st.session_state.answer[key][:-1]
     else:
         pass
-        
+
     return
 
 def selected_image(checklist_key,string='on'):
