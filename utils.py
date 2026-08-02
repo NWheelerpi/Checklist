@@ -28,10 +28,9 @@ def selected_image(checklist_key,string='on'):
     value=None
     # Correct values for reshaped grid 
     value=st.session_state.xylist[checklist_key]
-    st.markdown(st.session_state.xylist)
     # Delete Image to ensure no repeated selection when another tab used
-    st.session_state.xylist={}
-    st.markdown(st.session_state.xylist)
+    #st.session_state.xylist={}
+
     if not value:
         return
     # Check if recently clicked (else will add/remove previous options on other tabs)
