@@ -18,6 +18,7 @@ if reset:
   else:
     for key in list(st.session_state.keys()):
         del st.session_state[key]
+        st.markdown(st.session_state.keys())
     st.rerun()  # Forces immediate recreation with a new order
 
 ### Extract Emergencies
