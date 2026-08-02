@@ -20,7 +20,7 @@ if reset:
         del st.session_state[key]
         st.markdown(st.session_state.keys())
     st.rerun()  # Forces immediate recreation with a new order
-for key in st.session_state.keys:
+for key in st.session_state.keys():
     st.markdown(key)
 ### Extract Emergencies
 book= 'Tutor_Emergencies.xlsx'
