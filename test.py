@@ -23,7 +23,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
 
     with Tab:
         st.header(title)
-        outer_cols = st.columns([5,1,8])
+        outer_cols = st.columns([5,1,10])
 
         with outer_cols[1]:
             click_type=st.radio('Click Type',['On','Off','Check'],key='Radio'+str(tab_num),label_visibility='collapsed')
