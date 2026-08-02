@@ -26,16 +26,12 @@ action_image=pd.read_excel('Image_Actions.xlsx',sheet_name='Sheet1')
 
 ## Initialise various variables
 st.session_state.emergency_dict=pd.read_excel(book,sheet_name=None)     # Dictionary of emergencies
-if 'action_dict' not in st.session_state:                               # Dictionary of actions
-    st.session_state.action_dict={} 
-if 'xylist' not in st.session_state:                                          
-    st.session_state.xylist={}                                              # Dictionary of image coordinates (based on Cockpit image)
-if 'master_list' not in st.session_state:  
-    st.session_state.master_list={}                                         # Dictionary of correct Bold Face Actions per emergency
+st.session_state.action_dict={}                                         # Dictionary of actions
+st.session_state.xylist={}                                              # Dictionary of image coordinates (based on Cockpit image)
+st.session_state.master_list={}                                         # Dictionary of correct Bold Face Actions per emergency
 if 'answer' not in st.session_state:  
     st.session_state.answer={}                                              # Dictionary of answered options per emergency
-if 'Keys' not in st.session_state:  
-    st.session_state.Keys=[]                                                # List of Emergency Titles
+st.session_state.Keys=[]                                                # List of Emergency Titles
 # Create keys
 Raw_Keys=[i for i in st.session_state.emergency_dict.keys()]
 # Randomise order
