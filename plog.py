@@ -14,10 +14,12 @@ reset=st.button("Reset")
 # Handle the reset action before creating the tabs
 if reset:
   if 'num_checklist_list' not in st.session_state:
-    pass  # Nothing to clear yet
+    pass
   else:
-    del st.session_state.num_checklist_list
+    for key in list(st.session_state.keys()):
+        del st.session_state[key]
     st.rerun()  # Forces immediate recreation with a new order
+
 ### Extract Emergencies
 book= 'Tutor_Emergencies.xlsx'
 action_image=pd.read_excel('Image_Actions.xlsx',sheet_name='Sheet1')
