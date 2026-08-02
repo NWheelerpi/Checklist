@@ -58,7 +58,7 @@ Tabs=st.tabs([str(i+1) for i in range(len(st.session_state.Keys))])
 
 for j,i in enumerate(st.session_state.num_checklist_list):
     st.session_state.master_list[st.session_state.Keys[j]]=[]
-    if 'answer' not in st.session_state: 
+    if st.session_state.Keys[j] not in st.session_state.answer.keys(): 
         st.session_state.answer[st.session_state.Keys[j]]=[]
 
 for j,i in enumerate(st.session_state.num_checklist_list):
