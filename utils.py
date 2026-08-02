@@ -34,13 +34,14 @@ def selected_image(checklist_key,string='on'):
     st.markdown(st.session_state.xylist)
     if not value:
         return
-    xval=value['x']*860/value['width']
-    yval=value['y']*640/value['height']
+    # Check if recently clicked (else will add/remove previous options on other tabs)
     ut=int(value['unix_time']/1000)
     now=int(time.time())
-    st.markdown(time.time_ns())
     if now-ut>5:
         return
+    xval=value['x']*860/value['width']
+    yval=value['y']*640/value['height']
+
     # Calculate nearest 'action'
     dist_dict={}
     for i in st.session_state.action_dict:
