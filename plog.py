@@ -55,4 +55,6 @@ for j,i in enumerate(st.session_state.num_checklist_list):
         st.session_state.answer[st.session_state.Keys[j]]=[]
     st.markdown(st.session_state.answer)
     layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png') 
-    selected_image(st.session_state.Keys[j])
+    
+for j in st.session_state.Keys:
+    selected_image(j)
