@@ -33,11 +33,11 @@ def selected_image(checklist_key,string='on'):
     # Create correct string
     action_string=None
     if action_index!=None:
-        if string=='on' and type(st.session_state.action_dict[action_index][3])!=float and st.session_state.action_dict[action_index][3]!='NONE':
+        if string=='On' and type(st.session_state.action_dict[action_index][3])!=float and st.session_state.action_dict[action_index][3]!='NONE':
             action_string=st.session_state.action_dict[action_index][3]
-        elif string=='off' and type(st.session_state.action_dict[action_index][4])!=float and st.session_state.action_dict[action_index][4]!='NONE':
+        elif string=='Off' and type(st.session_state.action_dict[action_index][4])!=float and st.session_state.action_dict[action_index][4]!='NONE':
             action_string=st.session_state.action_dict[action_index][4]
-        elif string=='check' and type(st.session_state.action_dict[action_index][5])!=float and st.session_state.action_dict[action_index][5]!='NONE':
+        elif string=='Check' and type(st.session_state.action_dict[action_index][5])!=float and st.session_state.action_dict[action_index][5]!='NONE':
             action_string=st.session_state.action_dict[action_index][5]
     else:
         pass
