@@ -38,11 +38,9 @@ def selected_image(checklist_key,string='on'):
     yval=value['y']*640/value['height']
     ut=int(value['unix_time']/1000)
     now=int(time.time())
+    st.markdowntime.time_ns()
     if now-ut>5:
         return
-    st.markdown(now-ut)
-    st.markdown(now)
-    st.markdown(ut)
     # Calculate nearest 'action'
     dist_dict={}
     for i in st.session_state.action_dict:
