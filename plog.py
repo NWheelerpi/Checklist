@@ -7,6 +7,17 @@ import numpy as np
 
 
 st.set_page_config(layout="wide")
+
+
+
+reset=st.button("Shuffle Tabs Again")
+# Handle the reset action before creating the tabs
+if st.button("Shuffle Tabs Again"):
+  if "shuffled_tabs" not in st.session_state:
+    pass  # Nothing to clear yet
+  else:
+    del st.session_state.shuffled_tabs
+    st.rerun()  # Forces immediate recreation with a new order
 ### Extract Emergencies
 book= 'Tutor_Emergencies.xlsx'
 action_image=pd.read_excel('Image_Actions.xlsx',sheet_name='Sheet1')
