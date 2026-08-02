@@ -27,6 +27,8 @@ def selected_image(checklist_key,string='on'):
 
     # Correct values for reshaped grid 
     value=st.session_state.xylist[checklist_key]
+    # Delete Image to ensure no repeated selection when another tab used
+    st.session_state.xylist[checklist_key]=None
     if not value:
         return
     xval=value['x']*860/value['width']
