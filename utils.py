@@ -6,6 +6,18 @@ def nearest_location():
 
 def selected(string,key):
     st.markdown(string)
+    key_len=len(st.session_state.answer[Key])
+    if len(st.session_state.answer[Key])==0:
+        st.session_state.answer[Key].append(string)
+    # Check not in answer already (as last input)
+    elif string not in st.session_state.answer[Key][-1]:
+        st.session_state.answer[Key].append(string)  
+    # Remove if last answer
+    elif string in st.session_state.answer[Key][-1]:
+        st.session_state.answer[Key]=st.session_state.answer[Key][:-1]
+    else:
+        pass
+        
     return
 
 def selected_image(checklist_key,string='on'):
@@ -29,7 +41,6 @@ def selected_image(checklist_key,string='on'):
         action_index=None
     
     string=st.session_state['Radio'+str(checklist_key)]
-    st.markdown(string)
     # Create correct string
     action_string=None
     if action_index!=None:

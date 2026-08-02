@@ -15,6 +15,23 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
     
     actions=checklist.T.values.tolist()[0]
     conditionals=checklist.T.values.tolist()[1]
+    # Create Master List:
+    temp_acts=actions.copy()
+    # Create corresponding list containing booleans of order req'd
+    order_bools=[]
+    for i in range(len(temp_acts)):
+        if checklist.T.values.tolist()[2][i]==False:
+            order_bools.append(False)
+        elif checklist.T.values.tolist()[2][i]==True:
+            order_bools.append(True)
+    # Remove nan values from temp list (actions+results)
+    nan_list=[i for i in temp_acts if type(i)==float]
+    while len(nan_list)>0:
+        for item in temp_acts:
+            if type(item)==float:
+                temp_acts.remove(item)
+                nan_list.pop()     
+    st.session_state.master_list[checklist_key]=[temp_acts,order_bools]
     
     title=''
     for i in checklist_key.split('_'):
@@ -24,7 +41,9 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
     with Tab:
         st.header(title)
         outer_cols = st.columns([5,1,10])
-
+        with outer_cols[0]:
+            for string in st.session_state.answer:
+                st.markdown(string)
         with outer_cols[1]:
             click_type=st.radio('Click Type',['On','Off','Check'],key='Radio'+str(checklist_key),label_visibility='collapsed')
         with outer_cols[2]:
