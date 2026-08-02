@@ -25,12 +25,8 @@ def selected(string,key):
 
 def selected_image(checklist_key,string='on'):
     'Function that adds selected actions from action image'
-    value=None
     # Correct values for reshaped grid 
     value=st.session_state.xylist[checklist_key]
-    # Delete Image to ensure no repeated selection when another tab used
-    #st.session_state.xylist={}
-
     if not value:
         return
     # Check if recently clicked (else will add/remove previous options on other tabs)
