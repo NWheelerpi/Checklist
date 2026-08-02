@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 
 
 
-reset=st.button("Shuffle Tabs Again")
+reset=st.button("Reset")
 # Handle the reset action before creating the tabs
 if reset:
   if 'num_checklist_list' not in st.session_state:
