@@ -13,10 +13,10 @@ st.set_page_config(layout="wide")
 reset=st.button("Shuffle Tabs Again")
 # Handle the reset action before creating the tabs
 if st.button("Shuffle Tabs Again"):
-  if "shuffled_tabs" not in st.session_state:
+  if 'num_checklist_list' not in st.session_state:
     pass  # Nothing to clear yet
   else:
-    del st.session_state.shuffled_tabs
+    del st.session_state.num_checklist_list
     st.rerun()  # Forces immediate recreation with a new order
 ### Extract Emergencies
 book= 'Tutor_Emergencies.xlsx'
