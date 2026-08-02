@@ -30,6 +30,7 @@ def selected_image(checklist_key,string='on'):
     # Delete Image to ensure no repeated selection when another tab used
     for i in st.session_state.xylist.keys():
         st.session_state.xylist[i]=None
+    st.markdown(st.session_state.xylist)
     if not value:
         return
     xval=value['x']*860/value['width']
