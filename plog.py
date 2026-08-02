@@ -16,6 +16,8 @@ if reset:
     pass
   else:
     for key in list(st.session_state.keys()):
+        if 'Radio' in key:
+            st.session_state[key]='On'
         del st.session_state[key]
     st.rerun()  # Forces immediate recreation with a new order
 
