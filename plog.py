@@ -30,7 +30,7 @@ st.session_state.action_dict={}                                         # Dictio
 st.session_state.xylist={}                                              # Dictionary of image coordinates (based on Cockpit image)
 st.session_state.master_list={}                                         # Dictionary of correct Bold Face Actions per emergency
 if 'answer' not in st.session_state:  
-    st.session_state.answer={}                                              # Dictionary of answered options per emergency
+    st.session_state.answer={}                                          # Dictionary of answered options per emergency
 st.session_state.Keys=[]                                                # List of Emergency Titles
 # Create keys
 Raw_Keys=[i for i in st.session_state.emergency_dict.keys()]
