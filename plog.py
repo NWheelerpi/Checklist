@@ -8,8 +8,7 @@ import numpy as np
 
 st.set_page_config(layout="wide")
 
-
-
+## Create Reset Button
 reset=st.button("Reset")
 # Handle the reset action before creating the tabs
 if reset:
