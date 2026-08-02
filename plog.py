@@ -24,6 +24,8 @@ for key in st.session_state.keys():
     st.markdown(key)
 try:
     st.markdown(st.session_state.answer)
+except:
+    pass
 ### Extract Emergencies
 book= 'Tutor_Emergencies.xlsx'
 action_image=pd.read_excel('Image_Actions.xlsx',sheet_name='Sheet1')
