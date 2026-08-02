@@ -9,11 +9,14 @@ def selected(string,key):
     key_len=len(st.session_state.answer[key])
     if len(st.session_state.answer[key])==0:
         st.session_state.answer[key].append(string)
+        st.markdown('Added '+string)
     # Check not in answer already (as last input)
     elif string not in st.session_state.answer[key][-1]:
-        st.session_state.answer[key].append(string)  
+        st.session_state.answer[key].append(string)
+        st.markdown('Appended '+string)  
     # Remove if last answer
     elif string in st.session_state.answer[key][-1]:
+        st.markdown('Removed '+string)
         st.session_state.answer[key]=st.session_state.answer[key][:-1]
     else:
         pass
