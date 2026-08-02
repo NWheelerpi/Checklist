@@ -38,7 +38,7 @@ def selected_image(checklist_key,string='on'):
     yval=value['y']*640/value['height']
     ut=int(value['unix_time']/1000)
     now=int(time.time())
-    st.markdowntime.time_ns()
+    st.markdown(time.time_ns())
     if now-ut>5:
         return
     # Calculate nearest 'action'
