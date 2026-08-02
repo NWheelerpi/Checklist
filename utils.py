@@ -34,6 +34,7 @@ def selected_image(checklist_key,string='on'):
     now=int(time.time())
     if now-ut>5:
         return
+        
     xval=value['x']*860/value['width']
     yval=value['y']*640/value['height']
 
