@@ -62,3 +62,4 @@ for j,i in enumerate(st.session_state.num_checklist_list):
 
 #for j in st.session_state.Keys:
     #selected_image(j)
+st.markdown(st.session_state.xylist)
