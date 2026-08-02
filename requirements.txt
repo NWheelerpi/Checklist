@@ -2,5 +2,4 @@ streamlit
 pandas
 openpyxl
 numpy
-time
 streamlit_image_coordinates
