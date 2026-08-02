@@ -36,7 +36,7 @@ def selected_image(checklist_key,string='on'):
         return
     xval=value['x']*860/value['width']
     yval=value['y']*640/value['height']
-    ut=value['unix_time']
+    ut=int(value['unix_time']/1000)
     now=int(time.time())
     st.markdown(now-ut)
     st.markdown(now)
