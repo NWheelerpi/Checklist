@@ -51,7 +51,8 @@ Tabs=st.tabs([str(i+1) for i in range(len(st.session_state.Keys))])
 
 for j,i in enumerate(st.session_state.num_checklist_list):
     st.session_state.master_list[st.session_state.Keys[j]]=[]
-    st.session_state.answer[st.session_state.Keys[j]]=[]
+    if 'answer' not in st.session_state: 
+        st.session_state.answer[st.session_state.Keys[j]]=[]
     st.markdown(st.session_state.answer)
     layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png') 
     selected_image(st.session_state.Keys[j])
