@@ -27,11 +27,11 @@ def selected_image(checklist_key,string='on'):
 
     # Correct values for reshaped grid 
     value=st.session_state.xylist[checklist_key]
-    del st.session_state.xylist[checklist_key]
+    
     st.markdown(st.session_state.xylist)
     # Delete Image to ensure no repeated selection when another tab used
     for i in st.session_state.xylist.keys():
-        st.session_state.xylist[i]=None
+        del st.session_state.xylist[i]
     st.markdown(st.session_state.xylist)
     if not value:
         return
