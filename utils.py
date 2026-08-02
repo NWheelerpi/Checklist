@@ -10,24 +10,26 @@ def selected(string,key):
 
 def selected_image(checklist_key,string='on'):
     'Function that adds selected actions from action image'
-    # Calculate nearest 'action'
+
     # Correct values for reshaped grid 
     value=st.session_state.xylist[checklist_key]
     if not value:
         return
     xval=value['x']*860/value['width']
     yval=value['y']*640/value['height']
+    # Calculate nearest 'action'
     dist_dict={}
     for i in st.session_state.action_dict:
         Distance=(xval-st.session_state.action_dict[i][1])**2+(yval-st.session_state.action_dict[i][2])**2
         dist_dict[Distance]=i
     # Check close enough to a switch 
-    #print(dist_dict[sorted(dist_dict)[0]],st.session_state.action_dict[dist_dict[sorted(dist_dict)[0]]])
     if dist_dict[sorted(dist_dict)[0]] <=100:   
         action_index=dist_dict[sorted(dist_dict)[0]]
     else:
         action_index=None
-        
+    
+    string=st.session_state['Radio'+str(checklist_key)]
+    st.markdown(string)
     # Create correct string
     action_string=None
     if action_index!=None:
