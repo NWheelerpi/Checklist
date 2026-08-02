@@ -24,7 +24,7 @@ def selected(string,key):
 
 def selected_image(checklist_key,string='on'):
     'Function that adds selected actions from action image'
-
+    value=None
     # Correct values for reshaped grid 
     value=st.session_state.xylist[checklist_key]
     
