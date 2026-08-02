@@ -27,7 +27,6 @@ def selected_image(checklist_key,string='on'):
     value=None
     # Correct values for reshaped grid 
     value=st.session_state.xylist[checklist_key]
-    
     st.markdown(st.session_state.xylist)
     # Delete Image to ensure no repeated selection when another tab used
     st.session_state.xylist={}
@@ -36,6 +35,8 @@ def selected_image(checklist_key,string='on'):
         return
     xval=value['x']*860/value['width']
     yval=value['y']*640/value['height']
+    ut=value['unix_time']
+    st.markdown(ut)
     # Calculate nearest 'action'
     dist_dict={}
     for i in st.session_state.action_dict:
