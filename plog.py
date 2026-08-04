@@ -60,5 +60,6 @@ for j,i in enumerate(st.session_state.num_checklist_list):
         st.session_state.selected_lol[st.session_state.Keys[j]]=[]
     layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png') 
 
-
+st.markdown(st.session_state.selected_lol)
+st.markdown(st.session_state.answer)
 
