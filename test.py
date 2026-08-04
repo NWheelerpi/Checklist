@@ -5,10 +5,10 @@ from utils import selected_image,print_string,selected
 def show_question():
     return
 
-
-
 def show_hint(check_key,conds):
     'Function that reveals next step in checklist'
+    if st.session_state.submitted[check_key]==True:
+        return
     # Check if nil selected
     lowest_correct=len(st.session_state.answer[check_key])
     if len(st.session_state.answer[check_key])==0:
