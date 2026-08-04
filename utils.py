@@ -145,4 +145,5 @@ def print_string(checklist_key):
                 st.markdown(i)
             else:
                 st.markdown(':red['+i+']')
+        count+=1
     return
