@@ -21,9 +21,16 @@ def selected(string,key):
     else:
         pass
 
+    try:
+        if self.cond_dict_lol[tabnum//2][string][1]==key_len-1:
+            string+='\n '+self.cond_dict_lol[tabnum//2][string][0]
+        elif self.cond_dict_lol[tabnum//2][string][1]>key_len-1:
+            string+='\n '+self.cond_dict_lol[tabnum//2][string][0]
+    except:
+        pass
     return
 
-def selected_image(checklist_key,string='on'):
+def selected_image(checklist_key,string='on',conditionals):
     'Function that adds selected actions from action image'
     # Correct values for reshaped grid 
     value=st.session_state.xylist[checklist_key]
@@ -103,7 +110,7 @@ def print_string(checklist_key):
                     st.session_state.incorrect_list[checklist_key].append([st.session_state.answer[checklist_key][i],i,st.session_state.master_list[checklist_key][0][i]])
 
     count=0
-    for i in self.selected_lol[tabnum//2]:
+    for i in st.session_state.selected_lol[checklist_key]:
         # Check if incorrect + highlight conditionals
         highlight=''
         if i.splitlines()[0] in incorrect_list.values():
