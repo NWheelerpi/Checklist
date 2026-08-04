@@ -40,7 +40,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
                 temp_acts.remove(item)
                 nan_list.pop()     
     st.session_state.master_list[checklist_key]=[temp_acts,order_bools]
-    st.markdown(checklist.T.values.tolist())
+    st.markdown(checklist.T.values.tolist()[0])
     title=''
     for i in checklist_key.split('_'):
         title += ' '+i
