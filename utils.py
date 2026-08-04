@@ -138,7 +138,7 @@ def print_string(checklist_key):
             st.markdown(':violet['+i_split[1]+']')
         else:
             if highlight=='':
-                st.markdown(i_split[0])
+                st.markdown(i)
             else:
-                st.markdown(':red['+i_split[0]+']')
+                st.markdown(':red['+i+']')
     return
