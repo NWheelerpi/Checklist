@@ -60,5 +60,5 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
             for string in st.session_state.answer[checklist_key]:
                 print_string(checklist_key)
 
-    st.markdown(st.session_state.selected_lol)
+    st.markdown(st.session_state.selected_lol[checklist_key])
     return
