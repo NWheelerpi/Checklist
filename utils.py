@@ -7,7 +7,7 @@ def nearest_location():
 
 def selected(string,key,conditionals):
     # Check if complete
-    if st.session_state.submitted[key]=True:
+    if st.session_state.submitted[key]==True:
         return
     key_len=len(st.session_state.answer[key])
     if len(st.session_state.answer[key])==0:
