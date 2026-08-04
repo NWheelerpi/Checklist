@@ -45,7 +45,6 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
     for i in checklist_key.split('_'):
         title += ' '+i
    
-
     with Tab:
         st.header(title)
         outer_cols = st.columns([5,1,10])
@@ -57,8 +56,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
             st.session_state.xylist[checklist_key]=xy
         selected_image(checklist_key,cond_dict)
         with outer_cols[0]:
-            for string in st.session_state.answer[checklist_key]:
-                print_string(checklist_key)
+            print_string(checklist_key)
 
     
     return
