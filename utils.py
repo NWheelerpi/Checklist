@@ -131,7 +131,7 @@ def print_string(checklist_key):
                 pass
         if '\n' in i:
             i_split=i.splitlines()
-            if highlight='':
+            if highlight=='':
                 st.markdown(i_split[0])
             else:
                 st.markdown(':red['+i_split[0]+']')
