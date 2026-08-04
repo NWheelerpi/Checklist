@@ -65,7 +65,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
     title=''
     for i in checklist_key.split('_'):
         title += ' '+i
-    if st.session_state.submitted[check_key]==True:
+    if st.session_state.submitted[checklist_key]==True:
         title+=' :orange[- COMPLETE]'
     with Tab:
         st.header(title)
