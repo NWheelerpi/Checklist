@@ -5,9 +5,7 @@ from utils import selected_image,print_string,selected
 def show_question():
     return
 
-def submit_answer(checklist_key):
-    st.session_state.submitted[checklist_key]=True
-    return
+
 
 def show_hint(check_key,conds):
     'Function that reveals next step in checklist'

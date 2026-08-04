@@ -1,8 +1,12 @@
 import streamlit as st
 import time
-from test import submit_answer
+
 def nearest_location():
     print('Nearest Location')
+    return
+
+def submit_answer(checklist_key):
+    st.session_state.submitted[checklist_key]=True
     return
 
 def selected(string,key,conditionals):
