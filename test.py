@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_image_coordinates import streamlit_image_coordinates
-from utils import selected_image
+from utils import selected_image,print_string
 
 def show_question():
     return
@@ -58,6 +58,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
         selected_image(checklist_key,cond_dict)
         with outer_cols[0]:
             for string in st.session_state.answer[checklist_key]:
-                st.markdown(string)
+                print_string(checklist_key)
+                #st.markdown(string)
     
     return
