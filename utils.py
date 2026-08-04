@@ -123,6 +123,7 @@ def print_string(checklist_key):
     for i in st.session_state.selected_lol[checklist_key]:
         # Check if incorrect + highlight conditionals
         highlight=''
+        st.markdown(incorrect_list.values())
         if i.splitlines()[0] in incorrect_list.values():
             i_keys=[key for key, val in incorrect_list.items() if val == i.splitlines()[0]]
             # Check for correct incorrect selection (so does not highlight all instances of action)
