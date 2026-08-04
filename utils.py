@@ -1,11 +1,14 @@
 import streamlit as st
 import time
-
+from test import submit_answer
 def nearest_location():
     print('Nearest Location')
     return
 
 def selected(string,key,conditionals):
+    # Check if complete
+    if st.session_state.submitted[key]=True:
+        return
     key_len=len(st.session_state.answer[key])
     if len(st.session_state.answer[key])==0:
         st.session_state.answer[key].append(string)
@@ -37,6 +40,10 @@ def selected(string,key,conditionals):
         st.session_state.selected_lol[key].append(string)
     elif string in st.session_state.selected_lol[key][-1]:
         st.session_state.selected_lol[key]=st.session_state.selected_lol[key][:-1]
+
+    # Check if checklist complete
+    if len(st.session_state.answer[key])==len(st.session_state.master_list[key][0]) and len(incorrect_list)==0 and st.session_state.answer[key][-1]==st.session_state.master_list[Key][0][-1]:
+            submit_answer(key)
     return
 
 def selected_image(checklist_key,string='on',conditionals=None):
@@ -77,8 +84,6 @@ def selected_image(checklist_key,string='on',conditionals=None):
             action_string=st.session_state.action_dict[action_index][5]
     else:
         pass
-    #print(xval,yval,string,action_string)
-    
     # Add/remove from text
     if action_string!=None:
         selected(action_string,checklist_key,conditionals)

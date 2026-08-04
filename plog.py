@@ -33,8 +33,10 @@ st.session_state.master_list={}                                         # Dictio
 if 'answer' not in st.session_state:  
     st.session_state.answer={}                                          # Dictionary of answered options per emergency
     st.session_state.incorrect_list={}                                  # Dictionary of incorrect answers
-    st.session_state.selected_lol={}                                   # List of output (answers + following associated If statements)
+    st.session_state.selected_lol={}                                    # List of output (answers + following associated If statements)
+    st.session_state.submitted={}                                       # Dictionary of submitted emergencies
 st.session_state.Keys=[]                                                # List of Emergency Titles
+
 # Create keys
 Raw_Keys=[i for i in st.session_state.emergency_dict.keys()]
 # Randomise order
@@ -58,5 +60,6 @@ for j,i in enumerate(st.session_state.num_checklist_list):
         st.session_state.answer[st.session_state.Keys[j]]=[]
         st.session_state.incorrect_list[st.session_state.Keys[j]]=[]
         st.session_state.selected_lol[st.session_state.Keys[j]]=[]
+        st.session_state.submitted[st.session_state.Keys[j]]=False
     layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png') 
 
