@@ -45,9 +45,6 @@ def selected(string,key,conditionals):
     elif string in st.session_state.selected_lol[key][-1]:
         st.session_state.selected_lol[key]=st.session_state.selected_lol[key][:-1]
 
-    # Check if checklist complete
-    if len(st.session_state.answer[key])==len(st.session_state.master_list[key][0]) and len(incorrect_list)==0 and st.session_state.answer[key][-1]==st.session_state.master_list[Key][0][-1]:
-            submit_answer(key)
     return
 
 def selected_image(checklist_key,string='on',conditionals=None):
@@ -156,4 +153,8 @@ def print_string(checklist_key):
             else:
                 st.markdown(':red['+i+']')
         count+=1
+
+    # Check if checklist complete
+    if len(st.session_state.answer[checklist_key])==len(st.session_state.master_list[checklist_key][0]) and len(incorrect_list)==0 and st.session_state.answer[checklist_key][-1]==st.session_state.master_list[Key][0][-1]:
+            submit_answer(checklist_key)
     return
