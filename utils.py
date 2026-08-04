@@ -5,7 +5,7 @@ def nearest_location():
     print('Nearest Location')
     return
 
-def selected(string,key):
+def selected(string,key,conditionals):
     key_len=len(st.session_state.answer[key])
     if len(st.session_state.answer[key])==0:
         st.session_state.answer[key].append(string)
@@ -21,13 +21,22 @@ def selected(string,key):
     else:
         pass
 
+    # Create list of output text
     try:
-        if self.cond_dict_lol[tabnum//2][string][1]==key_len-1:
-            string+='\n '+self.cond_dict_lol[tabnum//2][string][0]
-        elif self.cond_dict_lol[tabnum//2][string][1]>key_len-1:
-            string+='\n '+self.cond_dict_lol[tabnum//2][string][0]
+        if conditionals[string][1]==key_len-1:
+            string+='\n '+conditionals[string][0]
+        elif conditionals[string][1]>key_len-1:
+            string+='\n '+conditionals[string][0]
     except:
         pass
+    
+    # Check if correct use of conditional (Only portray at correct instance)
+    if len(st.session_state.selected_lol[key])==0:
+        st.session_state.selected_lol[key].append(string)
+    elif string not in st.session_state.selected_lol[key][-1]:
+        st.session_state.selected_lol[key].append(string)
+    elif string in st.session_state.selected_lol[key][-1]:
+        st.session_state.selected_lol[key]=st.session_state.selected_lol[key][:-1]
     return
 
 def selected_image(checklist_key,string='on',conditionals=None):
@@ -72,7 +81,7 @@ def selected_image(checklist_key,string='on',conditionals=None):
     
     # Add/remove from text
     if action_string!=None:
-        selected(action_string,checklist_key)
+        selected(action_string,checklist_key,conditionals)
     return
 
 
@@ -121,10 +130,15 @@ def print_string(checklist_key):
             else:
                 pass
         if '\n' in i:
-            #print(' \'\n {} {}'.format(i,highlight))
             i_split=i.splitlines()
-            self.text_output[tabnum//2].insert('end',str(i_split[0])+'\n',(highlight))
-            self.text_output[tabnum//2].insert('end',str(i_split[1])+'\n',('Conditional'))
+            if highlight='':
+                st.markdown(i_split[0])
+            else:
+                st.markdown(':red['+i_split[0]+']')
+            st.markdown(':violet['+i_split[1]+']')
         else:
-            self.text_output[tabnum//2].insert('end',str(i)+'\n',(highlight))
+            if highlight='':
+                st.markdown(i_split[0])
+            else:
+                st.markdown(':red['+i_split[0]+']')
     return

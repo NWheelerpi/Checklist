@@ -33,7 +33,7 @@ st.session_state.master_list={}                                         # Dictio
 if 'answer' not in st.session_state:  
     st.session_state.answer={}                                          # Dictionary of answered options per emergency
     st.session_state.incorrect_list={}                                  # Dictionary of incorrect answers
-    t.session_state.selected_lol={}                                     # Dictionary of output (answers + following associated If statements)
+    st.session_state.selected_lol={}                                   # List of output (answers + following associated If statements)
 st.session_state.Keys=[]                                                # List of Emergency Titles
 # Create keys
 Raw_Keys=[i for i in st.session_state.emergency_dict.keys()]
