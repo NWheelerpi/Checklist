@@ -17,20 +17,20 @@ def show_hint(check_key,conds):
     # Check if first incorrect
     elif len(st.session_state.answer[check_key])==1:
         if st.session_state.answer[check_key][0]!=st.session_state.master_list[check_key][0][0]:
-            st.session_state.selected(st.session_state.answer[check_key][0],check_key,conds)
+            selected(st.session_state.answer[check_key][0],check_key,conds)
             lowest_correct=0
     # parse through from end to start removing incorrect values:
     else:
         # find lowest correct value (sequence from start to first incorrect)
         for i in range(len(st.session_state.answer[check_key])-1,0,-1):
             if st.session_state.answer[check_key][i]!=st.session_state.master_list[check_key][0][i]:
-                #st.session_state.selected(st.session_state.answer[check_key][i],tab_number,check_key)
+                #selected(st.session_state.answer[check_key][i],tab_number,check_key)
                 lowest_correct=i
         # Remove all values afterwards
         for i in range(len(st.session_state.answer[check_key])-1,lowest_correct-1,-1):
-            st.session_state.selected(st.session_state.answer[check_key][i],check_key,conds)
+            selected(st.session_state.answer[check_key][i],check_key,conds)
     # Add new value
-    st.session_state.selected(st.session_state.master_list[check_key][0][lowest_correct],check_key,conds)
+    selected(st.session_state.master_list[check_key][0][lowest_correct],check_key,conds)
     return
 
 def layout(Tab,checklist,checklist_key,tab_num,Image):
