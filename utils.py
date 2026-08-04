@@ -70,3 +70,54 @@ def selected_image(checklist_key,string='on'):
 
 
 
+def print_string(checklist_key):
+    # Check correctness of selection
+    modifier=-1                     # To allow for a misclick (only check last but one selection)
+    incorrect_list={}
+     
+    for i in range(len(st.session_state.answer[checklist_key])+modifier):
+
+        if st.session_state.answer[checklist_key][i]!=st.session_state.master_list[checklist_key][0][i] and st.session_state.master_list[checklist_key][1][i]!=False:
+            incorrect_list[i]=st.session_state.answer[checklist_key][i]
+            if [st.session_state.answer[checklist_key][i],i,st.session_state.master_list[checklist_key][0][i]] not in st.session_state.incorrect_list[checklist_key]:
+                st.session_state.incorrect_list[checklist_key].append([st.session_state.answer[checklist_key][i],i,st.session_state.master_list[checklist_key][0][i]])
+        elif st.session_state.master_list[checklist_key][1][i]==False:
+            unordered_list=[]
+            # Work down list
+            for j in range(len(st.session_state.master_list[checklist_key][0])-i):
+                if st.session_state.master_list[checklist_key][1][j+i]==False:
+                    unordered_list.append(st.session_state.master_list[checklist_key][0][j+i])
+                else:
+                    break
+                    
+            # Work up list
+            for j in range(i):
+                if st.session_state.master_list[checklist_key][1][i-j]==False:
+                    unordered_list.append(st.session_state.master_list[checklist_key][0][i-j])
+                else:
+                    break
+    
+            if st.session_state.answer[checklist_key][i] not in unordered_list:
+                incorrect_list[i]=st.session_state.answer[checklist_key][i]
+                if [st.session_state.answer[checklist_key][i],i,st.session_state.master_list[checklist_key][0][i]] not in st.session_state.incorrect_list[checklist_key]:
+                    st.session_state.incorrect_list[checklist_key].append([st.session_state.answer[checklist_key][i],i,st.session_state.master_list[checklist_key][0][i]])
+
+    count=0
+    for i in self.selected_lol[tabnum//2]:
+        # Check if incorrect + highlight conditionals
+        highlight=''
+        if i.splitlines()[0] in incorrect_list.values():
+            i_keys=[key for key, val in incorrect_list.items() if val == i.splitlines()[0]]
+            # Check for correct incorrect selection (so does not highlight all instances of action)
+            if count in i_keys:
+                highlight='Incorrect'
+            else:
+                pass
+        if '\n' in i:
+            #print(' \'\n {} {}'.format(i,highlight))
+            i_split=i.splitlines()
+            self.text_output[tabnum//2].insert('end',str(i_split[0])+'\n',(highlight))
+            self.text_output[tabnum//2].insert('end',str(i_split[1])+'\n',('Conditional'))
+        else:
+            self.text_output[tabnum//2].insert('end',str(i)+'\n',(highlight))
+    return
