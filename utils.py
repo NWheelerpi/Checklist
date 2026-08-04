@@ -118,8 +118,7 @@ def print_string(checklist_key):
                 if [st.session_state.answer[checklist_key][i],i,st.session_state.master_list[checklist_key][0][i]] not in st.session_state.incorrect_list[checklist_key]:
                     st.session_state.incorrect_list[checklist_key].append([st.session_state.answer[checklist_key][i],i,st.session_state.master_list[checklist_key][0][i]])
 
-    count=0
-    
+    st.markdown(incorrect_list)
     for i in st.session_state.selected_lol[checklist_key]:
         # Check if incorrect + highlight conditionals
         highlight=''
