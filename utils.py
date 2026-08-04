@@ -49,7 +49,7 @@ def selected(string,key,conditionals):
 
 def selected_image(checklist_key,string='on',conditionals=None):
     # Check if complete
-    if st.session_state.submitted[key]==True:
+    if st.session_state.submitted[checklist_key]==True:
         return
     'Function that adds selected actions from action image'
     # Correct values for reshaped grid 
