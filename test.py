@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_image_coordinates import streamlit_image_coordinates
-from utils import selected_image,print_string
+from utils import selected_image,print_string,selected
 
 def show_question():
     return
