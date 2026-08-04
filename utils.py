@@ -91,7 +91,7 @@ def print_string(checklist_key):
     modifier=-1                     # To allow for a misclick (only check last but one selection)
     incorrect_list={}
     st.markdown(st.session_state.answer[checklist_key])
-    st.markdown(st.session_state.master_list[checklist_key])
+    st.markdown(st.session_state.master_list)
     st.markdown(st.session_state.master_list[checklist_key][1])
 
     for i in range(len(st.session_state.answer[checklist_key])+modifier):
