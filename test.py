@@ -62,9 +62,10 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
                 nan_list.pop()     
     st.session_state.master_list[checklist_key]=[temp_acts,order_bools]
     
-    title=''
+    title=':blue['
     for i in checklist_key.split('_'):
-        title += ' '+i
+        title += i+' '
+    title+=']'
     if st.session_state.submitted[checklist_key]==True:
         title+=' :orange[- COMPLETE]'
     with Tab:
