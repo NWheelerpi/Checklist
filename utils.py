@@ -119,6 +119,7 @@ def print_string(checklist_key):
                     st.session_state.incorrect_list[checklist_key].append([st.session_state.answer[checklist_key][i],i,st.session_state.master_list[checklist_key][0][i]])
 
     count=0
+    
     for i in st.session_state.selected_lol[checklist_key]:
         # Check if incorrect + highlight conditionals
         highlight=''
