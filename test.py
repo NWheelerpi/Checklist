@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_image_coordinates import streamlit_image_coordinates
-from utils import selected_image,print_string,selected
+from utils import selected_image,print_string,selected,print_answers
 
 def show_question():
     return
@@ -61,23 +61,25 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
                 temp_acts.remove(item)
                 nan_list.pop()     
     st.session_state.master_list[checklist_key]=[temp_acts,order_bools]
-    
+    outer_cols = st.columns([2.5,2.5,1,10])
     title=':blue['
     for i in checklist_key.split('_'):
         title += i+' '
     title+=']'
     if st.session_state.submitted[checklist_key]==True:
         title+=' :orange[- COMPLETE]'
+        with outer_cols[1]:
+            print_answers(checklist_key,cond_dict)
     with Tab:
         st.header(title)
         hint=st.button('Hint',key='Hint'+str(checklist_key))
         if hint:
             show_hint(checklist_key,cond_dict)
-        outer_cols = st.columns([5,1,10])
         
-        with outer_cols[1]:
-            click_type=st.radio('Click Type',['On','Off','Check'],key='Radio'+str(checklist_key),label_visibility='collapsed')
+        
         with outer_cols[2]:
+            click_type=st.radio('Click Type',['On','Off','Check'],key='Radio'+str(checklist_key),label_visibility='collapsed')
+        with outer_cols[3]:
             xy=streamlit_image_coordinates(Image,use_column_width=True,key='Image'+str(checklist_key),cursor='crosshair')
             st.session_state.xylist[checklist_key]=xy
         selected_image(checklist_key,cond_dict)

@@ -132,7 +132,6 @@ def print_string(checklist_key):
         # Check if incorrect + highlight conditionals
         highlight=''
         if i.splitlines()[0] in incorrect_list.values():
-            
             i_keys=[key for key, val in incorrect_list.items() if val == i.splitlines()[0]]
 
             # Check for correct incorrect selection (so does not highlight all instances of action)
@@ -157,4 +156,62 @@ def print_string(checklist_key):
     # Check if checklist complete
     if len(st.session_state.answer[checklist_key])==len(st.session_state.master_list[checklist_key][0]) and len(incorrect_list)==0 and st.session_state.answer[checklist_key][-1]==st.session_state.master_list[checklist_key][0][-1]:
             submit_answer(checklist_key)
+    return
+
+def print_answers(checklist_key,conditionals):
+    'Function that prints off correct answers, coloured acording to if they were found correct or not'
+    incomplete=False
+    # Check if completed checklist or not
+    if len(st.session_state.answer[checklist_key])!= len(st.session_state.master_list[checklist_key]):
+        incomplete=True
+        count=len(st.session_state.answer[checklist_key])
+    else:
+        count=len(st.session_state.master_list[checklist_key])
+        
+    # Check if need add prompt
+    if 'prompt' in list(conditionals[checklist_key].keys()):
+        st.markdown(':violet['+str(conditionals[checklist_key]['prompt'])+']')
+    
+    for i in range(len(st.session_state.master_list[checklist_key][0])):
+        if incomplete==False:
+            # Check if incorrect 
+            highlight=' _ '
+            for j in range(len(st.session_state.incorrect_list[checklist_key])):
+                if i==st.session_state.incorrect_list[checklist_key][j][1]:
+                    highlight=':red[_]'
+            h0,h1=highlight.split('_')
+            # Check if conditional + highlight
+            if st.session_state.master_list[checklist_key][0][i] in conditionals[checklist_key].keys():
+                st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
+                if conditionals[checklist_key][st.session_state.master_list[checklist_key][0][i]][1]==i:
+                    st.markdown(':violet['+str(conditionals[checklist_key][st.session_state.master_list[checklist_key][0][i]][0])+']')
+            else:
+                st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
+
+        else:
+            # Check if beyond incomplete section
+            if i>=count:
+                h0=':orange['
+                # Check if conditional + highlight
+                if st.session_state.master_list[checklist_key][0][i] in conditionals[checklist_key].keys():
+                    st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
+                    if conditionals[checklist_key][st.session_state.master_list[checklist_key][0][i]][1]==i:
+                        st.markdown(':violet['+str(conditionals[checklist_key][st.session_state.master_list[checklist_key][0][i]][0])+']')
+                else:
+                    st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
+                
+            else:
+                # Check if correct
+                highlight=' _ '
+                for j in range(len(st.session_state.incorrect_list[checklist_key])):
+                    if i==st.session_state.incorrect_list[checklist_key][j][1]:
+                        highlight=':red[_]'
+                h0,h1=highlight.split('_')    
+                # Check if conditional + highlight
+                if st.session_state.master_list[checklist_key][0][i] in conditionals[checklist_key].keys():
+                    st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
+                    if conditionals[checklist_key][st.session_state.master_list[checklist_key][0][i]][1]==i:
+                        st.markdown(':violet['+str(conditionals[checklist_key][st.session_state.master_list[checklist_key][0][i]][0])+']')
+                else:
+                    st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
     return
