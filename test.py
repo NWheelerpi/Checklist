@@ -62,6 +62,14 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
                 temp_acts.remove(item)
                 nan_list.pop()     
     st.session_state.master_list[checklist_key]=[temp_acts,order_bools]
+
+    # Create list of actions for button (not associated with image)
+    image_actions=[]
+    col_list=[2]
+    for i in actions:
+        if i not in actions and i not in image_actions:
+            image_actions.append(i)
+            col_list.append(1)
     
     title=':blue['
     for i in checklist_key.split('_'):
@@ -73,10 +81,13 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
     with Tab:
         
         st.header(title)
-        hint=st.button('Hint',key='Hint'+str(checklist_key))
-        upper_cols=st.columns(4)
+        upper_cols=st.columns(col_list)
         with upper_cols[0]:
-            st.markdown('here')
+            hint=st.button('Hint',key='Hint'+str(checklist_key))
+            for i,num in enumerate(image_actions):
+                with upper_cols[num+1]:
+                    st.button('i',key='i'+checklist_key,on_click=selected(i,checklist_key,cond_dict))
+        
         if hint:
             show_hint(checklist_key,cond_dict)
         outer_cols = st.columns([2.5,2.5,1,10])
