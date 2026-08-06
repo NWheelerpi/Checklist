@@ -54,6 +54,7 @@ def selected_image(checklist_key,conditionals=None):
     'Function that adds selected actions from action image'
     # Correct values for reshaped grid 
     value=st.session_state.xylist[checklist_key]
+    string=st.session_state['Radio'+str(checklist_key)]
     if not value:
         return
     # Check if recently clicked (else will add/remove previous options on other tabs)
@@ -76,7 +77,7 @@ def selected_image(checklist_key,conditionals=None):
     else:
         action_index=None
     
-    string=st.session_state['Radio'+str(checklist_key)]
+    
     # Create correct string
     action_string=None
     if action_index!=None:
