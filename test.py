@@ -69,8 +69,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
     title+=']'
     if st.session_state.submitted[checklist_key]==True:
         title+=' :orange[- COMPLETE]'
-        with outer_cols[1]:
-            print_answers(checklist_key,cond_dict)
+
     with Tab:
         outer_cols = st.columns([2.5,2.5,1,10])
         st.header(title)
