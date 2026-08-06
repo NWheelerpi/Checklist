@@ -169,6 +169,7 @@ def print_answers(checklist_key,conditionals):
         count=len(st.session_state.master_list[checklist_key])
         
     # Check if need add prompt
+    st.markdown(conditionals[checklist_key])
     if 'prompt' in list(conditionals[checklist_key].keys()):
         st.markdown(':violet-background['+str(conditionals[checklist_key]['prompt'])+']')
     
