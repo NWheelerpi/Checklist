@@ -53,16 +53,12 @@ for i in range(len(action_image)):
 ### Create correct number of Tabs
 Tabs=st.tabs([str(i+1) for i in range(len(st.session_state.Keys))])
 
-'''
+
 # Create list of actions for button (not associated with image)
 image_actions=[]
 col_list=[2]
 flatlist=[j for i in list(st.session_state.action_dict.values()) for j in i]  
-for i in st.session_state.emergency_dict.T.values.tolist()[0]:
-    if i not in flatlist and i not in image_actions:
-        image_actions.append(i)
-        col_list.append(1)
-'''
+
 # Create Master list, Answer list and set layout of each tab (layout also runs through image click effects)
 for j,i in enumerate(st.session_state.num_checklist_list):
     st.session_state.master_list[st.session_state.Keys[j]]=[]
