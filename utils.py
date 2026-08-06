@@ -176,7 +176,7 @@ def print_answers(checklist_key,conditionals):
     for i in range(len(st.session_state.master_list[checklist_key][0])):
         if incomplete==False:
             # Check if incorrect 
-            highlight=' _ '
+            highlight=':green-background[_]'
             for j in range(len(st.session_state.incorrect_list[checklist_key])):
                 if i==st.session_state.incorrect_list[checklist_key][j][1]:
                     highlight=':red-background[_]'
@@ -203,7 +203,7 @@ def print_answers(checklist_key,conditionals):
                 
             else:
                 # Check if correct
-                highlight=' _ '
+                highlight=':green-background[_]'
                 for j in range(len(st.session_state.incorrect_list[checklist_key])):
                     if i==st.session_state.incorrect_list[checklist_key][j][1]:
                         highlight=':red-background[_]'
