@@ -85,6 +85,8 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
         with upper_cols[0]:
             hint=st.button('Hint',key='Hint'+str(checklist_key))
             for i,num in enumerate(image_actions):
+                if num>10:
+                    break
                 with upper_cols[num+1]:
                     st.button('i',key='i'+checklist_key,on_click=selected(i,checklist_key,cond_dict))
         
