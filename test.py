@@ -1,6 +1,7 @@
 import streamlit as st
 #from streamlit_image_coordinates 
-import streamlit_image_coordinates
+#import streamlit_image_coordinates
+pip install streamlit-image-coordinates
 from utils import selected_image,print_string,selected,print_answers
 
 def show_question():
