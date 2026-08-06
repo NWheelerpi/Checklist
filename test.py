@@ -33,7 +33,7 @@ def show_hint(check_key,conds):
     selected(st.session_state.master_list[check_key][0][lowest_correct],check_key,conds)
     return
 
-def layout(Tab,checklist,checklist_key,tab_num,Image,actions,col_list):
+def layout(Tab,checklist,checklist_key,tab_num,Image,actions,col_list,image_actions):
     
     #actions=checklist.T.values.tolist()[0]
     conditionals=checklist.T.values.tolist()[1]
