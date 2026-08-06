@@ -69,10 +69,8 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
     flatlist=[j for i in list(st.session_state.action_dict.values()) for j in i]  
     for i in actions:
         if i not in flatlist and i not in image_actions:
-            st.markdown(i)
             image_actions.append(i)
             col_list.append(1)
-    st.markdown(list(st.session_state.action_dict.values())[0])
     title=':blue['
     for i in checklist_key.split('_'):
         title += i+' '
