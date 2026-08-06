@@ -102,7 +102,7 @@ def print_string(checklist_key):
     incorrect_list={}
 
     for i in range(len(st.session_state.answer[checklist_key])+modifier):
-
+        st.markdown([st.session_state.answer[checklist_key],st.session_state.master_list[checklist_key][0]])
         if st.session_state.answer[checklist_key][i]!=st.session_state.master_list[checklist_key][0][i] and st.session_state.master_list[checklist_key][1][i]!=False:
             incorrect_list[i]=st.session_state.answer[checklist_key][i]
             if [st.session_state.answer[checklist_key][i],i,st.session_state.master_list[checklist_key][0][i]] not in st.session_state.incorrect_list[checklist_key]:
