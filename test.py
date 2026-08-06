@@ -70,7 +70,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
         if i not in st.session_state.action_dict.values() and i not in image_actions:
             image_actions.append(i)
             col_list.append(1)
-    
+    st.markdown(st.session_state.action_dict.values())
     title=':blue['
     for i in checklist_key.split('_'):
         title += i+' '
