@@ -74,6 +74,9 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
         
         st.header(title)
         hint=st.button('Hint',key='Hint'+str(checklist_key))
+        upper_cols=st.columns(4)
+        with upper_cols[0]:
+            st.markdown('here')
         if hint:
             show_hint(checklist_key,cond_dict)
         outer_cols = st.columns([2.5,2.5,1,10])
