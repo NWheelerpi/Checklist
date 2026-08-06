@@ -81,7 +81,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
         with outer_cols[2]:
             click_type=st.radio('Click Type',['On','Off','Check'],key='Radio'+str(checklist_key),label_visibility='collapsed')
         with outer_cols[3]:
-            xy=streamlit_image_coordinates(Image,use_column_width=True,key='Image'+str(checklist_key),cursor='crosshair')
+            xy=streamlit_image_coordinates(Image,key='Image'+str(checklist_key),cursor='crosshair') #,use_column_width=True
             st.session_state.xylist[checklist_key]=xy
         selected_image(checklist_key,cond_dict)
         with outer_cols[0]:
