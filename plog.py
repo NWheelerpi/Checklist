@@ -71,5 +71,5 @@ for j,i in enumerate(st.session_state.num_checklist_list):
         st.session_state.incorrect_list[st.session_state.Keys[j]]=[]
         st.session_state.selected_lol[st.session_state.Keys[j]]=[]
         st.session_state.submitted[st.session_state.Keys[j]]=False
-    layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png',image_actions,col_list) 
+    layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png') 
 
