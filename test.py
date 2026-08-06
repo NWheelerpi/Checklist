@@ -63,14 +63,8 @@ def layout(Tab,checklist,checklist_key,tab_num,Image,actions):
                 nan_list.pop()     
     st.session_state.master_list[checklist_key]=[temp_acts,order_bools]
 
-    # Create list of actions for button (not associated with image)
-    image_actions=[]
-    col_list=[2]
-    flatlist=[j for i in list(st.session_state.action_dict.values()) for j in i]  
-    for i in actions:
-        if i not in flatlist and i not in image_actions:
-            image_actions.append(i)
-            col_list.append(1)
+
+  
     title=':blue['
     for i in checklist_key.split('_'):
         title += i+' '
