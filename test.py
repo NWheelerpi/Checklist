@@ -84,7 +84,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
         upper_cols=st.columns(col_list)
         with upper_cols[0]:
             hint=st.button('Hint',key='Hint'+str(checklist_key))
-            for i,num in enumerate(image_actions):
+            for num,i in enumerate(image_actions):
                 if num>10:
                     break
                 with upper_cols[num+1]:
