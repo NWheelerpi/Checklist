@@ -77,9 +77,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
         if hint:
             show_hint(checklist_key,cond_dict)
         outer_cols = st.columns([2.5,2.5,1,10])
-        if st.session_state.submitted[checklist_key]==True:
-            with outer_cols[1]:
-                print_answers(checklist_key,cond_dict)
+        
         with outer_cols[2]:
             click_type=st.radio('Click Type',['On','Off','Check'],key='Radio'+str(checklist_key),label_visibility='collapsed')
         with outer_cols[3]:
@@ -89,6 +87,9 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
         with outer_cols[0]:
             print_string(checklist_key)
             #for string in st.session_state.answer[checklist_key]:
+        if st.session_state.submitted[checklist_key]==True:
+            with outer_cols[1]:
+                print_answers(checklist_key,cond_dict)
                 
 
     
