@@ -62,7 +62,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
                 temp_acts.remove(item)
                 nan_list.pop()     
     st.session_state.master_list[checklist_key]=[temp_acts,order_bools]
-    outer_cols = st.columns([2.5,2.5,1,10])
+    
     title=':blue['
     for i in checklist_key.split('_'):
         title += i+' '
@@ -72,12 +72,15 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
         with outer_cols[1]:
             print_answers(checklist_key,cond_dict)
     with Tab:
+        outer_cols = st.columns([2.5,2.5,1,10])
         st.header(title)
         hint=st.button('Hint',key='Hint'+str(checklist_key))
         if hint:
             show_hint(checklist_key,cond_dict)
         
-        
+        if st.session_state.submitted[checklist_key]==True:
+            with outer_cols[1]:
+                print_answers(checklist_key,cond_dict)
         with outer_cols[2]:
             click_type=st.radio('Click Type',['On','Off','Check'],key='Radio'+str(checklist_key),label_visibility='collapsed')
         with outer_cols[3]:
