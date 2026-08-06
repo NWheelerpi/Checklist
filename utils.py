@@ -47,7 +47,7 @@ def selected(string,key,conditionals):
 
     return
 
-def selected_image(checklist_key,string='on',conditionals=None):
+def selected_image(checklist_key,conditionals=None):
     # Check if complete
     if st.session_state.submitted[checklist_key]==True:
         return
