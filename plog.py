@@ -73,5 +73,5 @@ for j,i in enumerate(st.session_state.num_checklist_list):
         if i not in flatlist and i not in image_actions:
             image_actions.append(i)
             col_list.append(1)
-    layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png',actions) 
+    layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png',actions,col_list) 
 
