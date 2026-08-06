@@ -155,7 +155,7 @@ def print_string(checklist_key):
         count+=1
 
     # Check if checklist complete
-    st.markdown([len(st.session_state.answer[checklist_key]),len(st.session_state.master_list[checklist_key][0]),len(incorrect_list)])
+
     if len(st.session_state.answer[checklist_key])==len(st.session_state.master_list[checklist_key][0]) and len(incorrect_list)==0 and st.session_state.answer[checklist_key][-1]==st.session_state.master_list[checklist_key][0][-1]:
             submit_answer(checklist_key)
     return
