@@ -170,8 +170,8 @@ def print_answers(checklist_key,conditionals):
         
     # Check if need add prompt
     st.markdown(conditionals)
-    if 'prompt' in list(conditionals[checklist_key].keys()):
-        st.markdown(':violet-background['+str(conditionals[checklist_key]['prompt'])+']')
+    if 'prompt' in list(conditionals.keys()):
+        st.markdown(':violet-background['+str(conditionals['prompt'])+']')
     
     for i in range(len(st.session_state.master_list[checklist_key][0])):
         if incomplete==False:
@@ -182,10 +182,10 @@ def print_answers(checklist_key,conditionals):
                     highlight=':red-background[_]'
             h0,h1=highlight.split('_')
             # Check if conditional + highlight
-            if st.session_state.master_list[checklist_key][0][i] in conditionals[checklist_key].keys():
+            if st.session_state.master_list[checklist_key][0][i] in conditionals.keys():
                 st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
-                if conditionals[checklist_key][st.session_state.master_list[checklist_key][0][i]][1]==i:
-                    st.markdown(':violet-background['+str(conditionals[checklist_key][st.session_state.master_list[checklist_key][0][i]][0])+']')
+                if conditionals[st.session_state.master_list[checklist_key][0][i]][1]==i:
+                    st.markdown(':violet-background['+str(conditionals[st.session_state.master_list[checklist_key][0][i]][0])+']')
             else:
                 st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
 
@@ -194,10 +194,10 @@ def print_answers(checklist_key,conditionals):
             if i>=count:
                 h0=':orange['
                 # Check if conditional + highlight
-                if st.session_state.master_list[checklist_key][0][i] in conditionals[checklist_key].keys():
+                if st.session_state.master_list[checklist_key][0][i] in conditionals.keys():
                     st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
-                    if conditionals[checklist_key][st.session_state.master_list[checklist_key][0][i]][1]==i:
-                        st.markdown(':violet-background['+str(conditionals[checklist_key][st.session_state.master_list[checklist_key][0][i]][0])+']')
+                    if conditionals[st.session_state.master_list[checklist_key][0][i]][1]==i:
+                        st.markdown(':violet-background['+str(conditionals[st.session_state.master_list[checklist_key][0][i]][0])+']')
                 else:
                     st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
                 
@@ -209,10 +209,10 @@ def print_answers(checklist_key,conditionals):
                         highlight=':red-background[_]'
                 h0,h1=highlight.split('_')    
                 # Check if conditional + highlight
-                if st.session_state.master_list[checklist_key][0][i] in conditionals[checklist_key].keys():
+                if st.session_state.master_list[checklist_key][0][i] in conditionals.keys():
                     st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
-                    if conditionals[checklist_key][st.session_state.master_list[checklist_key][0][i]][1]==i:
-                        st.markdown(':violet-background['+str(conditionals[checklist_key][st.session_state.master_list[checklist_key][0][i]][0])+']')
+                    if conditionals[st.session_state.master_list[checklist_key][0][i]][1]==i:
+                        st.markdown(':violet-background['+str(conditionals[st.session_state.master_list[checklist_key][0][i]][0])+']')
                 else:
                     st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
     return
