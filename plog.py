@@ -71,5 +71,11 @@ for j,i in enumerate(st.session_state.num_checklist_list):
         st.session_state.incorrect_list[st.session_state.Keys[j]]=[]
         st.session_state.selected_lol[st.session_state.Keys[j]]=[]
         st.session_state.submitted[st.session_state.Keys[j]]=False
-    layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png') 
+
+    actions=st.session_state.emergency_dict[st.session_state.Keys[j]].T.values.tolist()[0]
+    for i in actions:
+        if i not in flatlist and i not in image_actions:
+            image_actions.append(i)
+            col_list.append(1)
+    layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png',actions) 
 
