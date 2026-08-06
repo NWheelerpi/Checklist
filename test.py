@@ -67,7 +67,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image):
     image_actions=[]
     col_list=[2]
     for i in actions:
-        if i not in list(st.session_state.action_dict.values()[0]) and i not in image_actions:
+        if i not in list(st.session_state.action_dict.values())[0] and i not in image_actions:
             st.markdown(i)
             image_actions.append(i)
             col_list.append(1)
