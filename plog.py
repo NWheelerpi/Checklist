@@ -64,8 +64,6 @@ for j,i in enumerate(st.session_state.num_checklist_list):
         if i not in flatlist and i not in non_image_actions:
             non_image_actions.append(i)
             col_list.append(1)
-st.markdown(actions)
-st.markdown(flatlist)
 # Create Master list, Answer list and set layout of each tab (layout also runs through image click effects)
 for j,i in enumerate(st.session_state.num_checklist_list):
     st.session_state.master_list[st.session_state.Keys[j]]=[]

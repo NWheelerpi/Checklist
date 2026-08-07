@@ -82,7 +82,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image,col_list,image_actions):
                 if num>10:
                     break
                 with upper_cols[num+1]:
-                    st.button(i,key=str(i)+checklist_key,on_click=selected(i,checklist_key,cond_dict))
+                    st.button(i,key=str(i)+checklist_key,on_click=selected,args=(i,checklist_key,cond_dict))
         
         if hint:
             show_hint(checklist_key,cond_dict)
