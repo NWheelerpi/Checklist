@@ -77,7 +77,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image,col_list,image_actions):
         st.header(title)
         upper_cols=st.columns(col_list)
         with upper_cols[0]:
-            hint=st.button('Next Action',key='Hint'+str(checklist_key),help='Displays next correct action',type='tertiary')
+            hint=st.button('Next Action',key='Hint'+str(checklist_key),help='Displays next correct action',type='primary')
             for num,i in enumerate(image_actions):
                 if num>10:
                     break
