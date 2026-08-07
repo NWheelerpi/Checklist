@@ -33,9 +33,9 @@ def show_hint(check_key,conds):
     selected(st.session_state.master_list[check_key][0][lowest_correct],check_key,conds)
     return
 
-def layout(Tab,checklist,checklist_key,tab_num,Image,actions,col_list,image_actions):
+def layout(Tab,checklist,checklist_key,tab_num,Image,col_list,image_actions):
     
-    #actions=checklist.T.values.tolist()[0]
+    actions=checklist.T.values.tolist()[0]
     conditionals=checklist.T.values.tolist()[1]
     # Create dictionary of conditional actions
     # Check if first value conditional

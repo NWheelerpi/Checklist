@@ -61,8 +61,8 @@ flatlist=[j for i in list(st.session_state.action_dict.values()) for j in i]
 for j,i in enumerate(st.session_state.num_checklist_list):
     actions=st.session_state.emergency_dict[st.session_state.Keys[j]].T.values.tolist()[0]
 for i in actions:
-    if i not in flatlist and i not in image_actions:
-        image_actions.append(i)
+    if i not in flatlist and i not in non_image_actions:
+        non_image_actions.append(i)
         col_list.append(1)
 # Create Master list, Answer list and set layout of each tab (layout also runs through image click effects)
 for j,i in enumerate(st.session_state.num_checklist_list):
@@ -72,5 +72,5 @@ for j,i in enumerate(st.session_state.num_checklist_list):
         st.session_state.incorrect_list[st.session_state.Keys[j]]=[]
         st.session_state.selected_lol[st.session_state.Keys[j]]=[]
         st.session_state.submitted[st.session_state.Keys[j]]=False
-    layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png',actions,col_list,image_actions) 
+    layout(Tabs[j],st.session_state.emergency_dict[st.session_state.Keys[j]],st.session_state.Keys[j],j,'Cockpit.png',col_list,non_image_actions) 
 
