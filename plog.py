@@ -60,10 +60,10 @@ col_list=[2]
 flatlist=[j for i in list(st.session_state.action_dict.values()) for j in i]  
 for j,i in enumerate(st.session_state.num_checklist_list):
     actions=st.session_state.emergency_dict[st.session_state.Keys[j]].T.values.tolist()[0]
-for i in actions:
-    if i not in flatlist and i not in non_image_actions:
-        non_image_actions.append(i)
-        col_list.append(1)
+    for i in actions:
+        if i not in flatlist and i not in non_image_actions:
+            non_image_actions.append(i)
+            col_list.append(1)
 st.markdown(actions)
 st.markdown(flatlist)
 # Create Master list, Answer list and set layout of each tab (layout also runs through image click effects)
