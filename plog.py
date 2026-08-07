@@ -9,7 +9,7 @@ import numpy as np
 st.set_page_config(layout="wide")
 
 ## Create Reset Button
-reset=st.button("Reset",help='Resets all Emergencies')
+reset=st.button("Reset",help='Resets all Emergencies',type='primary')
 # Handle the reset action before creating the tabs
 if reset:
   if 'num_checklist_list' not in st.session_state:
