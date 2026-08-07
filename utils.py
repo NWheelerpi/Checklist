@@ -60,7 +60,7 @@ def selected_image(checklist_key,conditionals=None):
     # Check if recently clicked (else will add/remove previous options on other tabs)
     ut=int(value['unix_time']/1000)
     now=int(time.time())
-    if now-ut>2:
+    if now-ut>1:
         return
 
     xval=value['x']*860/value['width']
