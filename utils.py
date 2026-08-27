@@ -7,7 +7,7 @@ def nearest_location():
 
 def validate():
     st.session_state.radio=True
-    st.markdown('Radio Validation')
+    print('Radio Validation')
     return
 
 def submit_answer(checklist_key):
@@ -74,7 +74,7 @@ def selected_image(checklist_key,conditionals=None):
     # Ensure no spurious selection on radio-button change
     if st.session_state.radio==True:
         st.session_state.radio=False
-        st.markdown('Validated')
+        print('Validated')
         return
 
     xval=value['x']*860/value['width']
