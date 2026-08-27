@@ -222,7 +222,7 @@ def print_answers(checklist_key,conditionals):
     return
 
 def validate(x):
-    if x==True:
+    if x=='True':
         st.session_state.radio=True
     else:
         st.session_state.radio=False
