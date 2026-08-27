@@ -36,7 +36,7 @@ if 'answer' not in st.session_state:
     st.session_state.selected_lol={}                                    # List of output (answers + following associated If statements)
     st.session_state.submitted={}                                       # Dictionary of submitted emergencies
 st.session_state.Keys=[]                                                # List of Emergency Titles
-
+st.session_state.radio=False
 # Create keys
 Raw_Keys=[i for i in st.session_state.emergency_dict.keys()]
 # Randomise order

@@ -62,6 +62,10 @@ def selected_image(checklist_key,conditionals=None):
     now=int(time.time())
     if now-ut>2:
         return
+    # Ensure no spurious selection on radio-button change
+    if st.session_state.radio==True:
+        st.session_state.radio=False
+        return
 
     xval=value['x']*860/value['width']
     yval=value['y']*640/value['height']
@@ -215,4 +219,11 @@ def print_answers(checklist_key,conditionals):
                         st.markdown(':violet-background['+str(conditionals[st.session_state.master_list[checklist_key][0][i]][0])+']')
                 else:
                     st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
+    return
+
+def validation(x):
+    if x==True:
+        st.session_state.radio=True
+    else:
+        st.session_state.radio=False
     return

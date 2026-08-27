@@ -1,7 +1,7 @@
 import streamlit as st
 # 
 from streamlit_image_coordinates import streamlit_image_coordinates
-from utils import selected_image,print_string,selected,print_answers
+from utils import selected_image,print_string,selected,print_answers,validation
 
 def show_question():
     return
@@ -89,7 +89,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image,col_list,image_actions):
         outer_cols = st.columns([2.5,2.5,1,10])
         
         with outer_cols[2]:
-            click_type=st.radio('Click Type',['On','Off','Check'],key='Radio'+str(checklist_key),label_visibility='collapsed')
+            click_type=st.radio('Click Type',['On','Off','Check'],key='Radio'+str(checklist_key),label_visibility='collapsed',on_change=validation,args=(True))
         with outer_cols[3]:
             xy=streamlit_image_coordinates(Image,use_column_width=True,key='Image'+str(checklist_key),cursor='crosshair')
             st.session_state.xylist[checklist_key]=xy
