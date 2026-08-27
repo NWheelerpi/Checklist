@@ -72,10 +72,10 @@ def selected_image(checklist_key,conditionals=None):
     if now-ut>2:
         return
     # Ensure no spurious selection on radio-button change
-    if st.session_state.radio==True:
-        st.session_state.radio=False
-        print('Validated')
-        return
+    #if st.session_state.radio==True:
+     #   st.session_state.radio=False
+      #  print('Validated')
+       # return
 
     xval=value['x']*860/value['width']
     yval=value['y']*640/value['height']
@@ -90,13 +90,14 @@ def selected_image(checklist_key,conditionals=None):
         action_index=dist_dict[sorted(dist_dict)[0]]
     else:
         action_index=None
-    
+
     
     # Create correct string
     action_string=None
     if action_index!=None:
         if string=='On' and type(st.session_state.action_dict[action_index][3])!=float and st.session_state.action_dict[action_index][3]!='NONE':
             action_string=st.session_state.action_dict[action_index][3]
+
         elif string=='Off' and type(st.session_state.action_dict[action_index][4])!=float and st.session_state.action_dict[action_index][4]!='NONE':
             action_string=st.session_state.action_dict[action_index][4]
         elif string=='Check' and type(st.session_state.action_dict[action_index][5])!=float and st.session_state.action_dict[action_index][5]!='NONE':
