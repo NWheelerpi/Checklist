@@ -5,6 +5,10 @@ def nearest_location():
     print('Nearest Location')
     return
 
+def validate():
+    st.session_state.radio=True
+    return
+
 def submit_answer(checklist_key):
     st.session_state.submitted[checklist_key]=True
     return
@@ -13,6 +17,9 @@ def selected(string,key,conditionals):
     # Check if complete
     if st.session_state.submitted[key]==True:
         return
+    if st.session_state.radio==True:
+            st.session_state.radio=False
+            return
     key_len=len(st.session_state.answer[key])
     if len(st.session_state.answer[key])==0:
         st.session_state.answer[key].append(string)
@@ -221,6 +228,3 @@ def print_answers(checklist_key,conditionals):
                     st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
     return
 
-def validate():
-    st.session_state.radio=True
-    return
