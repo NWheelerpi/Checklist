@@ -19,6 +19,7 @@ def selected(string,key,conditionals):
         return
     if st.session_state.radio==True:
             st.session_state.radio=False
+            st.markdown('Validated')
             return
     key_len=len(st.session_state.answer[key])
     if len(st.session_state.answer[key])==0:
@@ -72,6 +73,7 @@ def selected_image(checklist_key,conditionals=None):
     # Ensure no spurious selection on radio-button change
     if st.session_state.radio==True:
         st.session_state.radio=False
+        st.markdown('Validated')
         return
 
     xval=value['x']*860/value['width']
