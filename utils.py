@@ -221,7 +221,7 @@ def print_answers(checklist_key,conditionals):
                     st.markdown(h0+str(st.session_state.master_list[checklist_key][0][i])+h1)
     return
 
-def validation(x):
+def validate(x):
     if x==True:
         st.session_state.radio=True
     else:
