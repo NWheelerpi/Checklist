@@ -97,11 +97,16 @@ def selected_image(checklist_key,conditionals=None):
     if action_index!=None:
         if string=='On' and type(st.session_state.action_dict[action_index][3])!=float and st.session_state.action_dict[action_index][3]!='NONE':
             action_string=st.session_state.action_dict[action_index][3]
-
+            if st.session_state.answer[checklist_key][-1]==st.session_state.action_dict[action_index][4] or st.session_state.answer[checklist_key][-1]==st.session_state.action_dict[action_index][5]:
+                return
         elif string=='Off' and type(st.session_state.action_dict[action_index][4])!=float and st.session_state.action_dict[action_index][4]!='NONE':
             action_string=st.session_state.action_dict[action_index][4]
+            if st.session_state.answer[checklist_key][-1]==st.session_state.action_dict[action_index][3] or st.session_state.answer[checklist_key][-1]==st.session_state.action_dict[action_index][5]:
+                return
         elif string=='Check' and type(st.session_state.action_dict[action_index][5])!=float and st.session_state.action_dict[action_index][5]!='NONE':
             action_string=st.session_state.action_dict[action_index][5]
+            if st.session_state.answer[checklist_key][-1]==st.session_state.action_dict[action_index][4] or st.session_state.answer[checklist_key][-1]==st.session_state.action_dict[action_index][3]:
+                return
     else:
         pass
     # Add/remove from text
