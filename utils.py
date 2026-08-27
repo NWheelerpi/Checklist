@@ -7,6 +7,7 @@ def nearest_location():
 
 def validate():
     st.session_state.radio=True
+    st.markdown('Radio Validation')
     return
 
 def submit_answer(checklist_key):
