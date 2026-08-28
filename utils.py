@@ -11,6 +11,7 @@ def validate(checklist_key):
 
 def submit_answer(checklist_key):
     st.session_state.submitted[checklist_key]=True
+    st.rerun()
     return
 
 def selected(string,key,conditionals):
