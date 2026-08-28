@@ -5,7 +5,7 @@ def nearest_location():
     print('Nearest Location')
     return
 
-def validate():
+def validate(checklist_key):
     st.session_state.radio=True
     return
 
