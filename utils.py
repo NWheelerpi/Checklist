@@ -70,10 +70,9 @@ def selected_image(checklist_key,conditionals=None):
     if now-ut>3:
         return
     # Ensure no spurious selection on radio-button change
-    #if st.session_state.radio==True:
-     #   st.session_state.radio=False
-      #  print('Validated')
-       # return
+    if st.session_state.radio==True:
+        st.session_state.radio=False
+        return
 
     xval=value['x']*860/value['width']
     yval=value['y']*640/value['height']
