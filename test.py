@@ -34,13 +34,13 @@ def show_hint(check_key,conds):
     return
 def remove_last(check_key,conds):
     # Check not complete
-    if st.session_state.submitted[key]==True:
+    if st.session_state.submitted[check_key]==True:
         return
     # Check if answer present to remove
-    if len(st.session_state.answer[key])==0:
+    if len(st.session_state.answer[check_key])==0:
         return
     # Run Selected
-    previous_string=st.session_state.answer[key][-1]
+    previous_string=st.session_state.answer[check_key][-1]
     selected(previous_string,check_key,conds)
     return
 
