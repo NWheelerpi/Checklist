@@ -32,6 +32,17 @@ def show_hint(check_key,conds):
     # Add new value
     selected(st.session_state.master_list[check_key][0][lowest_correct],check_key,conds)
     return
+def remove_last(check_key,conds):
+    # Check not complete
+    if st.session_state.submitted[key]==True:
+        return
+    # Check if answer present to remove
+    if len(st.session_state.answer[key])==0:
+        return
+    # Run Selected
+    previous_string=st.session_state.answer[key][-1]
+    selected(previous_string,check_key,conds)
+    return
 
 def layout(Tab,checklist,checklist_key,tab_num,Image,col_list,image_actions):
     
@@ -92,6 +103,9 @@ def layout(Tab,checklist,checklist_key,tab_num,Image,col_list,image_actions):
         
         if hint:
             show_hint(checklist_key,cond_dict)
+        if delete:
+            remove_last(checklist_key,cond_dict)
+
         outer_cols = st.columns([2.5,2.5,1,10])
         
         with outer_cols[2]:
