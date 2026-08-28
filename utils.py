@@ -19,7 +19,6 @@ def selected(string,key,conditionals):
         return
     if st.session_state.radio==True:
             st.session_state.radio=False
-            print('Validated')
             return
     key_len=len(st.session_state.answer[key])
     if len(st.session_state.answer[key])==0:
