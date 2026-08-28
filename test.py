@@ -44,7 +44,7 @@ def remove_last(check_key,conds,num):
         num=1
     # Run Selected
     last_string=st.session_state.answer[check_key][-1]
-    selected(previous_string,check_key,conds)
+    selected(last_string,check_key,conds)
     if num==2:
         penultimate_string=st.session_state.answer[check_key][-1]
         selected(penultimate_string,check_key,conds)
