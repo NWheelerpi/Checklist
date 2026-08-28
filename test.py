@@ -32,7 +32,7 @@ def show_hint(check_key,conds):
     # Add new value
     selected(st.session_state.master_list[check_key][0][lowest_correct],check_key,conds)
     return
-def remove_last(check_key,conds):
+def remove_last(check_key,conds,num):
     # Check not complete
     if st.session_state.submitted[check_key]==True:
         return
@@ -88,11 +88,13 @@ def layout(Tab,checklist,checklist_key,tab_num,Image,col_list,image_actions):
         st.header(title)
         upper_cols=st.columns([1,3,2])
         with upper_cols[0]:
-            but_cols=st.columns(2)
+            but_cols=st.columns(3)
             with but_cols[0]:
                 hint=st.button('Next Action',key='Hint'+str(checklist_key),help='Displays next correct action',type='primary')
             with but_cols[1]:
                 delete=st.button('Remove Last',key='Delete'+str(checklist_key),help='Removes last selected action',type='primary')
+            with but_cols[2]:
+                delete2=st.button('Remove Last 2',key='Delete2'+str(checklist_key),help='Removes last 2 selected actions',type='primary')
         with upper_cols[2]:
             act_cols=st.columns(col_list)
             for num,i in enumerate(image_actions):
@@ -104,7 +106,9 @@ def layout(Tab,checklist,checklist_key,tab_num,Image,col_list,image_actions):
         if hint:
             show_hint(checklist_key,cond_dict)
         if delete:
-            remove_last(checklist_key,cond_dict)
+            remove_last(checklist_key,cond_dict,1)
+        if delete2:
+            remove_last(checklist_key,cond_dict,2)
 
         outer_cols = st.columns([2.5,2.5,1,10])
         
