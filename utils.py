@@ -69,7 +69,7 @@ def selected_image(checklist_key,conditionals=None):
     # Check if recently clicked (else will add/remove previous options on other tabs)
     ut=int(value['unix_time']/1000)
     now=int(time.time())
-    if now-ut>2:
+    if now-ut>3:
         return
     # Ensure no spurious selection on radio-button change
     #if st.session_state.radio==True:
@@ -91,7 +91,6 @@ def selected_image(checklist_key,conditionals=None):
     else:
         action_index=None
 
-    
     # Create correct string
     try:
         previous_answer=st.session_state.answer[checklist_key][-1]
