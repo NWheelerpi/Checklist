@@ -92,7 +92,7 @@ def layout(Tab,checklist,checklist_key,tab_num,Image,col_list,image_actions):
     with Tab:
         
         st.header(title)
-        upper_cols=st.columns([1.5,3,2])
+        upper_cols=st.columns([1.5,2,2])
         with upper_cols[0]:
             but_cols=st.columns(3)
             with but_cols[0]:
