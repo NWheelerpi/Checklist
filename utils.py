@@ -8,7 +8,7 @@ def nearest_location():
 
 def validate():
     st.session_state.radio=True
-    os.write(1,f'{st.session_state.radio}n'.encode())
+    os.write(1,b'Radio validated\n')
     return
 
 def submit_answer(checklist_key):
@@ -73,6 +73,7 @@ def selected_image(checklist_key,conditionals=None):
     if now-ut>3:
         return
     # Ensure no spurious selection on radio-button change
+    os.write(1,f'{st.session_state.radio}n'.encode())
     #if st.session_state.radio==True:
      #   st.session_state.radio=False
       #  print('Validated')
