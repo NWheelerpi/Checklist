@@ -77,13 +77,18 @@ def layout(Tab,checklist,checklist_key,tab_num,Image,col_list,image_actions):
         st.header(title)
         upper_cols=st.columns([1,3,2])
         with upper_cols[0]:
-            hint=st.button('Next Action',key='Hint'+str(checklist_key),help='Displays next correct action',type='primary')
-            delete=st.button('Remove Last',key='Delete'+str(checklist_key),help='Removes last selected action',type='primary')
+            but_cols=st.columns(2)
+            with but_cols[0]:
+                hint=st.button('Next Action',key='Hint'+str(checklist_key),help='Displays next correct action',type='primary')
+            with but_cols[1]:
+                delete=st.button('Remove Last',key='Delete'+str(checklist_key),help='Removes last selected action',type='primary')
         with upper_cols[2]:
+            act_cols=st.columns(col_list)
             for num,i in enumerate(image_actions):
                 if num>10:
                     break
-                st.button(i,key=str(i)+checklist_key,on_click=selected,args=(i,checklist_key,cond_dict))
+                with act_cols[num+1]:
+                    st.button(i,key=str(i)+checklist_key,on_click=selected,args=(i,checklist_key,cond_dict))
         
         if hint:
             show_hint(checklist_key,cond_dict)
