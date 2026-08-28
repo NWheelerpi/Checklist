@@ -39,9 +39,15 @@ def remove_last(check_key,conds,num):
     # Check if answer present to remove
     if len(st.session_state.answer[check_key])==0:
         return
+    # Check if removing two is invalid
+    if len(st.session_state.answer[check_key])==1:
+        num=1
     # Run Selected
-    previous_string=st.session_state.answer[check_key][-1]
+    last_string=st.session_state.answer[check_key][-1]
     selected(previous_string,check_key,conds)
+    if num=2:
+        penultimate_string=st.session_state.answer[check_key][-1]
+        selected(penultimate_string,check_key,conds)
     return
 
 def layout(Tab,checklist,checklist_key,tab_num,Image,col_list,image_actions):
