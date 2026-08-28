@@ -56,7 +56,7 @@ Tabs=st.tabs([str(i+1) for i in range(len(st.session_state.Keys))])
 
 # Create list of actions for button (not associated with image)
 non_image_actions=[]
-col_list=[2]
+col_list=[]
 flatlist=[j for i in list(st.session_state.action_dict.values()) for j in i]  
 for j,i in enumerate(st.session_state.num_checklist_list):
     actions=st.session_state.emergency_dict[st.session_state.Keys[j]].T.values.tolist()[0]
