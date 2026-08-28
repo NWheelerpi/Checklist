@@ -3,3 +3,4 @@ pandas
 openpyxl
 numpy
 streamlit_image_coordinates
+os

@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+import os
 
 def nearest_location():
     print('Nearest Location')
@@ -7,7 +8,7 @@ def nearest_location():
 
 def validate():
     st.session_state.radio=True
-    print('Radio Validated')
+    os.write(1,f'{st.session_state.radio}n'.encode())
     return
 
 def submit_answer(checklist_key):
