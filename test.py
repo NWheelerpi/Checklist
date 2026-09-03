@@ -31,6 +31,7 @@ def show_hint(check_key,conds):
         # Remove all values afterwards
         for i in range(len(st.session_state.answer[check_key])-1,lowest_correct-1,-1):
             selected(st.session_state.answer[check_key][i],check_key,conds)
+        st.markdown(lowest_correct)
     # Add new value
     selected(st.session_state.master_list[check_key][0][lowest_correct],check_key,conds)
     return
