@@ -165,6 +165,7 @@ def print_string(checklist_key):
             try:
                 if i.splitlines()[0] in st.session_state.incorrect_list[checklist_key][-1]:
                     highlight='Incorrect'
+                    st.markdown(168)
             except:
                 pass
         if i.splitlines()[0] in incorrect_list.values():
@@ -173,6 +174,7 @@ def print_string(checklist_key):
             # Check for correct incorrect selection (so does not highlight all instances of action)
             if count in i_keys:
                 highlight='Incorrect'
+                st.markdown(177)
             else:
                 pass
         if '\n' in i:
