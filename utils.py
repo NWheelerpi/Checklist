@@ -163,7 +163,7 @@ def print_string(checklist_key):
         # Check if last value previously correct
         if count==len(st.session_state.selected_lol[checklist_key])-1:
             try:
-                if i.splitlines()[0] in st.session_state.incorrect_list[checklist_key][-1]:
+                if i.splitlines()[0] in st.session_state.incorrect_list[checklist_key][-1][0]:
                     highlight='Incorrect'
                     st.markdown(i.splitlines()[0])
                     st.markdown(st.session_state.incorrect_list[checklist_key][-1])
