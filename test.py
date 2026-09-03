@@ -15,10 +15,10 @@ def show_hint(check_key,conds):
     if len(st.session_state.answer[check_key])==0:
         pass
     # Check if first incorrect
-    elif len(st.session_state.answer[check_key])==1:
-        if st.session_state.answer[check_key][0]!=st.session_state.master_list[check_key][0][0]:
+    elif st.session_state.answer[check_key][0]!=st.session_state.master_list[check_key][0][0]:
+        lowest_correct=0
+        if len(st.session_state.answer[check_key])==1:
             selected(st.session_state.answer[check_key][0],check_key,conds)
-            lowest_correct=0
     # parse through from end to start removing incorrect values:
     else:
         # find lowest correct value (sequence from start to first incorrect)
