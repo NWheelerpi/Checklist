@@ -20,8 +20,8 @@ def show_hint(check_key,conds):
         #if len(st.session_state.answer[check_key])==1:
          #   selected(st.session_state.answer[check_key][0],check_key,conds)
         #else:
-            for i in range(len(st.session_state.answer[check_key])-1,lowest_correct-1,-1):
-                selected(st.session_state.answer[check_key][i],check_key,conds)
+        for i in range(len(st.session_state.answer[check_key])-1,lowest_correct-1,-1):
+            selected(st.session_state.answer[check_key][i],check_key,conds)
     # parse through from end to start removing incorrect values:
     else:
         # find lowest correct value (sequence from start to first incorrect)
