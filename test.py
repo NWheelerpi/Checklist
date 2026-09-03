@@ -23,7 +23,9 @@ def show_hint(check_key,conds):
     else:
         # find lowest correct value (sequence from start to first incorrect)
         for i in range(len(st.session_state.answer[check_key])-1,0,-1):
-            if st.session_state.answer[check_key][i]!=st.session_state.master_list[check_key][0][i]:
+            if i>len(st.session_state.master_list[check_key][0]):
+                lowest_correct=i
+            elif st.session_state.answer[check_key][i]!=st.session_state.master_list[check_key][0][i]:
                 #selected(st.session_state.answer[check_key][i],tab_number,check_key)
                 lowest_correct=i
         # Remove all values afterwards
