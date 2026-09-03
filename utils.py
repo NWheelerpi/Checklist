@@ -122,8 +122,10 @@ def print_string(checklist_key):
     incorrect_list={}
     if len(st.session_state.answer[checklist_key])<=len(st.session_state.master_list[checklist_key][0]):
         limit=len(st.session_state.answer[checklist_key])
+        excess=None
     else:
         limit=len(st.session_state.master_list[checklist_key][0])
+        excess=len(st.session_state.answer[checklist_key])-limit
     for i in range(limit+modifier):
         
         if st.session_state.answer[checklist_key][i]!=st.session_state.master_list[checklist_key][0][i] and st.session_state.master_list[checklist_key][1][i]!=False:
@@ -151,6 +153,9 @@ def print_string(checklist_key):
                 if [st.session_state.answer[checklist_key][i],i,st.session_state.master_list[checklist_key][0][i]] not in st.session_state.incorrect_list[checklist_key]:
                     st.session_state.incorrect_list[checklist_key].append([st.session_state.answer[checklist_key][i],i,st.session_state.master_list[checklist_key][0][i]])
 
+    if excess!=None:
+        for i in range(limit+modifier,excess+limit)
+        incorrect_list[i]=st.session_state.answer[checklist_key][i]
     count=0
     for i in st.session_state.selected_lol[checklist_key]:
         # Check if incorrect + highlight conditionals
