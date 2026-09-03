@@ -120,7 +120,11 @@ def print_string(checklist_key):
     # Check correctness of selection
     modifier=-1                     # To allow for a misclick (only check last but one selection)
     incorrect_list={}
-    for i in range(len(st.session_state.answer[checklist_key])+modifier):
+    if len(st.session_state.answer[checklist_key])<=len(st.session_state.master_list[checklist_key][0]):
+        limit=len(st.session_state.answer[checklist_key])
+    else:
+        limit=len(st.session_state.master_list[checklist_key][0])
+    for i in range(limit+modifier):
         
         if st.session_state.answer[checklist_key][i]!=st.session_state.master_list[checklist_key][0][i] and st.session_state.master_list[checklist_key][1][i]!=False:
             incorrect_list[i]=st.session_state.answer[checklist_key][i]
