@@ -162,8 +162,11 @@ def print_string(checklist_key):
         highlight=''
         # Check if last value previously correct
         if count==len(st.session_state.selected_lol[checklist_key])-1:
-            if i.splitlines()[0] in st.session_state.incorrect_list[checklist_key][-1]:
-                highlight='Incorrect'
+            try:
+                if i.splitlines()[0] in st.session_state.incorrect_list[checklist_key][-1]:
+                    highlight='Incorrect'
+            except:
+                pass
         if i.splitlines()[0] in incorrect_list.values():
             i_keys=[key for key, val in incorrect_list.items() if val == i.splitlines()[0]]
 
