@@ -160,10 +160,11 @@ def print_string(checklist_key):
     for i in st.session_state.selected_lol[checklist_key]:
         # Check if incorrect + highlight conditionals
         highlight=''
-        # Check if last value previously correct
+        # Check if last value previously incorrect
         if count==len(st.session_state.selected_lol[checklist_key])-1:
             try:
                 if i.splitlines()[0] in st.session_state.incorrect_list[checklist_key][-1][0]:
+                    st.markdown(167)
                     highlight='Incorrect'
             except:
                 pass
@@ -173,6 +174,7 @@ def print_string(checklist_key):
             # Check for correct incorrect selection (so does not highlight all instances of action)
             if count in i_keys:
                 highlight='Incorrect'
+                st.markdown(177)
             else:
                 pass
         if '\n' in i:
