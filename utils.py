@@ -164,8 +164,8 @@ def print_string(checklist_key):
             try:
                 if i.splitlines()[0] in st.session_state.incorrect_list[checklist_key][-1][0]:
                     st.markdown(167)
-                    st.markdown([i.splitlines()[0],st.session_state.master_list[checklist_key][0][count]]):
-                    if i.splitlines()[0]!=st.session_state.master_list[checklist_key][0][count]
+                    st.markdown([i.splitlines()[0],st.session_state.master_list[checklist_key][0][count]])
+                    if i.splitlines()[0]!=st.session_state.master_list[checklist_key][0][count]:
                         highlight='Incorrect'
             except:
                 pass
