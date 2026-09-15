@@ -127,7 +127,6 @@ def print_string(checklist_key):
         limit=len(st.session_state.master_list[checklist_key][0])
         excess=len(st.session_state.answer[checklist_key])-limit
     for i in range(limit+modifier):
-        
         if st.session_state.answer[checklist_key][i]!=st.session_state.master_list[checklist_key][0][i] and st.session_state.master_list[checklist_key][1][i]!=False:
             incorrect_list[i]=st.session_state.answer[checklist_key][i]
             if [st.session_state.answer[checklist_key][i],i,st.session_state.master_list[checklist_key][0][i]] not in st.session_state.incorrect_list[checklist_key]:
@@ -160,12 +159,14 @@ def print_string(checklist_key):
     for i in st.session_state.selected_lol[checklist_key]:
         # Check if incorrect + highlight conditionals
         highlight=''
-        # Check if last value previously incorrect
+        # Check if last value previously correct
         if count==len(st.session_state.selected_lol[checklist_key])-1:
             try:
                 if i.splitlines()[0] in st.session_state.incorrect_list[checklist_key][-1][0]:
                     st.markdown(167)
-                    highlight='Incorrect'
+                    st.markdown([i.splitlines()[0],st.session_state.master_list[checklist_key][0][count]])
+                    if i.splitlines()[0]!=st.session_state.master_list[checklist_key][0][count]
+                        highlight='Incorrect'
             except:
                 pass
         if i.splitlines()[0] in incorrect_list.values():
