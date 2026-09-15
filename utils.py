@@ -159,7 +159,7 @@ def print_string(checklist_key):
     for i in st.session_state.selected_lol[checklist_key]:
         # Check if incorrect + highlight conditionals
         highlight=''
-        # Check if last value previously correct
+        # Check if last value previously incorrect
         if count==len(st.session_state.selected_lol[checklist_key])-1:
             try:
                 if i.splitlines()[0] in st.session_state.incorrect_list[checklist_key][-1][0] and i.splitlines()[0]!=st.session_state.master_list[checklist_key][0][count]:
